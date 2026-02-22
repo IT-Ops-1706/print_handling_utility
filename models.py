@@ -76,8 +76,8 @@ class TrackedJob(BaseModel):
 
 
 class OrchestratorState(BaseModel):
-    """Top-level state persisted to state.json"""
+    """Operational state — active and pending_retry jobs only.
+    Completed/failed records are written to date-wise files in States/.
+    """
     last_fetch_timestamp: Optional[str] = None
     active_jobs: dict[str, TrackedJob] = {}
-    completed_jobs: dict[str, dict] = {}
-    failed_jobs: dict[str, dict] = {}

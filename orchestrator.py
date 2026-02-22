@@ -9,8 +9,11 @@ File lifecycle:
 
 Batch processing:
   - Documents are processed in batches of BATCH_SIZE (default 10)
-  - Each batch is submitted sequentially (one at a time through Print Queue)
-  - Next batch starts after current batch completes
+  - Each batch uses a sliding window (depth 2):
+    - 2 jobs are submitted upfront to keep the Print API worker saturated
+    - Polling occurs sequentially: poll timeout starts only after the prior job resolves
+    - On each resolution, the next job is submitted to maintain queue depth
+  - Eliminates false timeouts caused by queue wait time
 """
 import os
 import base64
@@ -22,7 +25,6 @@ from models import TrackedJob, SaveFlattenDocRequest
 from state_manager import StateManager
 from erp_client import ERPClient
 from print_queue_client import PrintQueueClient
-from email_notifier import EmailNotifier
 
 logger = logging.getLogger(__name__)
 
@@ -34,14 +36,8 @@ class Orchestrator:
         self.state = StateManager()
         self.erp = ERPClient()
         self.print_queue = PrintQueueClient()
-        self.email = EmailNotifier()
         self.cache_dir = config.CACHE_DIR
         self.batch_size = config.BATCH_SIZE
-
-        if self.email.is_configured():
-            logger.info("Email notifications enabled")
-        else:
-            logger.warning("Email notifications NOT configured (missing env vars)")
 
     def run_cycle(self) -> dict:
         """Execute one full cycle: retry -> fetch -> process (batched).
@@ -81,17 +77,14 @@ class Orchestrator:
 
             logger.info(
                 f"PROCESS PHASE: Batch {batch_num}/{total_batches} "
-                f"({len(batch)} jobs)"
+                f"({len(batch)} jobs) — Sliding window (depth 2)"
             )
 
-            for doc_job in batch:
-                result = self._process_single_job(doc_job)
-                summary["submitted"] += 1
-                if result == "saved_to_erp":
-                    summary["completed"] += 1
-                    summary["saved_to_erp"] += 1
-                elif result == "failed":
-                    summary["failed"] += 1
+            batch_results = self._process_jobs_sliding_window(batch)
+            summary["submitted"] += batch_results["submitted"]
+            summary["completed"] += batch_results["completed"]
+            summary["failed"] += batch_results["failed"]
+            summary["saved_to_erp"] += batch_results["saved_to_erp"]
 
         # --- Update timestamp ---
         self.state.set_last_fetch_timestamp(datetime.now().isoformat())
@@ -102,44 +95,6 @@ class Orchestrator:
 
         return summary
 
-    def get_daily_report_stats(self) -> dict:
-        """Build stats for the daily email report from current state"""
-        state = self.state.state
-
-        # Collect failed job details
-        failed_details = []
-        for key, job_data in state.failed_jobs.items():
-            failed_details.append({
-                "lId": job_data.get("lId", ""),
-                "fileName": job_data.get("fileName", key),
-                "error_type": job_data.get("error_type", ""),
-                "error": job_data.get("error", ""),
-            })
-
-        return {
-            "total_processed": len(state.completed_jobs) + len(state.failed_jobs),
-            "completed": len(state.completed_jobs),
-            "failed": len(state.failed_jobs),
-            "in_queue": len([
-                j for j in state.active_jobs.values()
-                if j.status in ("fetched", "submitted", "polling")
-            ]),
-            "pending_retry": len([
-                j for j in state.active_jobs.values()
-                if j.status == "pending_retry"
-            ]),
-            "permanently_failed": len(state.failed_jobs),
-            "failed_details": failed_details,
-        }
-
-    def send_daily_report(self) -> bool:
-        """Trigger the daily email report"""
-        if not self.email.is_configured():
-            logger.debug("Email not configured, skipping daily report")
-            return False
-
-        stats = self.get_daily_report_stats()
-        return self.email.send_daily_report(stats)
 
     # ------------------------------------------------------------------
     # Phase 1: Retry
@@ -156,25 +111,93 @@ class Orchestrator:
 
         logger.info(f"RETRY PHASE: {len(pending_jobs)} jobs to retry")
 
-        for job in pending_jobs:
-            results["retried"] += 1
-            logger.info(
-                f"Retrying lId={job.lId} (attempt {job.retry_count + 1}/{config.MAX_RETRIES})"
+        return self._process_jobs_sliding_window(pending_jobs)
+
+    def _process_jobs_sliding_window(self, jobs: list[TrackedJob]) -> dict:
+        """Process jobs using a sliding window of depth 2.
+
+        The Print API has a single worker. This method keeps 2 jobs queued
+        so the worker never idles between jobs, while polling sequentially
+        to ensure the timeout clock starts only after the prior job resolves.
+
+        Flow:
+          1. Submit up to 2 jobs immediately.
+          2. Poll the oldest submitted job until it resolves.
+          3. Handle the result (ERP save / retry / fail).
+          4. Submit the next pending job (maintaining queue depth of 2).
+          5. Repeat from step 2 until all jobs are resolved.
+        """
+        results = {"retried": 0, "submitted": 0, "completed": 0, "failed": 0, "saved_to_erp": 0}
+
+        if not jobs:
+            return results
+
+        pending = list(jobs)       # Jobs waiting to be submitted
+        submitted = []             # (job, job_id) pairs submitted but not yet polled
+
+        # --- Helper: submit one job from pending, append to submitted ---
+        def _submit_next():
+            if not pending:
+                return
+            job = pending.pop(0)
+
+            if job.status == "pending_retry":
+                logger.info(
+                    f"Retrying lId={job.lId} (attempt {job.retry_count + 1}/{config.MAX_RETRIES})"
+                )
+                results["retried"] += 1
+
+            logger.info(f"Submitting lId={job.lId}: {job.fileName}")
+            submit_result, submit_error_type = self.print_queue.submit_job(
+                job.fileName, job.input_file_path
             )
 
-            # Verify input file still exists on disk
-            if not job.input_file_path or not os.path.exists(job.input_file_path):
-                logger.error(f"Input file missing for retry lId={job.lId}: {job.input_file_path}")
-                self._handle_failure(job, "Input file missing on disk", "file_validation_failed")
+            if not submit_result:
+                logger.error(f"Submit failed for lId={job.lId}")
+                self._handle_failure(job, "Failed to submit to print queue", submit_error_type or "unknown")
+                results["submitted"] += 1
                 results["failed"] += 1
-                continue
+                # Try to submit the next job in its place
+                _submit_next()
+                return
 
-            result = self._submit_and_poll(job)
-            if result == "saved_to_erp":
-                results["completed"] += 1
-                results["saved_to_erp"] += 1
-            elif result == "failed":
+            # Update state with job ID
+            self.state.update_active_job(
+                job.lId,
+                print_queue_job_id=submit_result.job_id,
+                status="submitted",
+                submitted_at=datetime.now().isoformat(),
+            )
+            submitted.append((job, submit_result.job_id))
+            results["submitted"] += 1
+
+        # --- Seed the window: submit first 2 jobs ---
+        _submit_next()
+        _submit_next()
+
+        # --- Process until all submitted jobs are resolved ---
+        while submitted:
+            job, job_id = submitted.pop(0)
+
+            # Poll this job (timeout clock starts NOW)
+            logger.info(f"Polling job {job_id} for lId={job.lId}")
+            self.state.update_active_job(job.lId, status="polling")
+            poll_result = self.print_queue.poll_until_complete(job_id)
+
+            # Handle result
+            if poll_result.status == "completed":
+                outcome = self._save_to_erp(job, poll_result)
+                if outcome == "saved_to_erp":
+                    results["completed"] += 1
+                    results["saved_to_erp"] += 1
+                else:
+                    results["failed"] += 1
+            else:
+                self._handle_failure(job, poll_result.error, poll_result.error_type)
                 results["failed"] += 1
+
+            # Refill window: submit next pending job
+            _submit_next()
 
         return results
 
@@ -184,14 +207,12 @@ class Orchestrator:
 
     def _fetch_phase(self) -> list[TrackedJob]:
         """Fetch new documents from ERP and save to cache"""
-        last_ts = self.state.get_last_fetch_timestamp()
+        from_date = self.state.get_last_fetch_timestamp()
 
-        # Default to today if no previous timestamp
-        from_date = last_ts if last_ts else datetime.now().strftime("%Y-%m-%d")
-
-        # Use only the date portion for the API call
-        if "T" in from_date:
-            from_date = from_date.split("T")[0]
+        # Default to configured initial timestamp if no previous timestamp
+        if not from_date:
+            from_date = "2026-02-16T13:09:01.300"
+            logger.info(f"No previous timestamp found, using initial: {from_date}")
 
         try:
             documents = self.erp.fetch_documents(from_date)
@@ -212,6 +233,14 @@ class Orchestrator:
             except KeyError:
                 logger.warning(
                     f"No flatten mapping for docType={doc.docType}, skipping lId={doc.lId}"
+                )
+                continue
+
+            # --- Validate base64 content ---
+            if not doc.fileBase64 or not doc.fileBase64.strip():
+                logger.warning(
+                    f"Empty or blank fileBase64 for lId={doc.lId} "
+                    f"(docType={doc.docType}, fileName={doc.fileName}), skipping"
                 )
                 continue
 
@@ -242,42 +271,9 @@ class Orchestrator:
     # Phase 3: Process
     # ------------------------------------------------------------------
 
-    def _process_single_job(self, job: TrackedJob) -> str:
-        """Process a single document through submit -> poll -> save."""
-        return self._submit_and_poll(job)
-
-    def _submit_and_poll(self, job: TrackedJob) -> str:
-        """Submit a job to the Print Queue and poll for completion.
-
-        Returns:
-            "saved_to_erp" on success, "failed" on failure
-        """
-        # --- Submit (read from disk) ---
-        logger.info(f"Submitting lId={job.lId}: {job.fileName}")
-        submit_result = self.print_queue.submit_job(job.fileName, job.input_file_path)
-
-        if not submit_result:
-            logger.error(f"Submit failed for lId={job.lId}")
-            self._handle_failure(job, "Failed to submit to print queue", "unknown")
-            return "failed"
-
-        # Update state with job ID
-        self.state.update_active_job(
-            job.lId,
-            print_queue_job_id=submit_result.job_id,
-            status="polling",
-            submitted_at=datetime.now().isoformat(),
-        )
-
-        # --- Poll (with timeout) ---
-        logger.info(f"Polling job {submit_result.job_id} for lId={job.lId}")
-        poll_result = self.print_queue.poll_until_complete(submit_result.job_id)
-
-        if poll_result.status == "completed":
-            return self._save_to_erp(job, poll_result)
-        else:
-            self._handle_failure(job, poll_result.error, poll_result.error_type)
-            return "failed"
+    # _process_single_job and _submit_and_poll removed:
+    # Submit and poll logic is now inlined in _process_jobs_sliding_window
+    # to enable the sliding window pattern (deferred polling).
 
     # ------------------------------------------------------------------
     # ERP Save + Cleanup
@@ -312,7 +308,7 @@ class Orchestrator:
             fileName=flatten_filename,
             docType=job.flatten_docType,
             flattenQueueId=job.print_queue_job_id or "",
-            flattenStatusId=1,
+            flattenStatusId=2,
             fileBase64=poll_result.result,
         )
 
@@ -377,7 +373,6 @@ class Orchestrator:
     def _handle_failure(self, job: TrackedJob, error: str, error_type: str | None) -> None:
         """Handle a failed job: retry or permanently fail.
         Cached files are KEPT on failure for debugging/manual retry.
-        Sends email alert on permanent failure.
         """
         error_type = error_type or "unknown"
 
@@ -401,7 +396,7 @@ class Orchestrator:
                 f"({new_retry_count}/{config.MAX_RETRIES}): {error}"
             )
         else:
-            # Permanent failure — files KEPT, send email alert
+            # Permanent failure — files KEPT for manual inspection
             self.state.update_active_job(
                 job.lId,
                 status="permanently_failed",
@@ -416,16 +411,3 @@ class Orchestrator:
             logger.error(
                 f"Job lId={job.lId} permanently failed [{error_type}] ({reason}): {error}"
             )
-
-            # --- Send failure alert email ---
-            if self.email.is_configured():
-                try:
-                    self.email.send_failure_alert(
-                        lId=job.lId,
-                        fileName=job.fileName,
-                        error=error or "",
-                        error_type=error_type,
-                        retry_count=new_retry_count,
-                    )
-                except Exception as e:
-                    logger.error(f"Failed to send failure alert email for lId={job.lId}: {e}")

@@ -1,6 +1,5 @@
 httpx
 pydantic
 python-dotenv
-msal
 requests
 urllib3

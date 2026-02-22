@@ -23,7 +23,7 @@ class PrintQueueClient:
         self.timeout = config.HTTP_TIMEOUT_SECONDS
         self.poll_interval = config.POLL_INTERVAL_SECONDS
 
-    def submit_job(self, filename: str, file_path: str) -> PrintQueueResponse | None:
+    def submit_job(self, filename: str, file_path: str) -> tuple[PrintQueueResponse | None, str | None]:
         """Submit a PDF to the Print Queue for flattening.
 
         Args:
@@ -31,7 +31,8 @@ class PrintQueueClient:
             file_path: Path to the cached PDF file on disk
 
         Returns:
-            PrintQueueResponse on success, None on failure
+            (PrintQueueResponse, None) on success
+            (None, error_type) on failure — error_type indicates if retryable
         """
         url = f"{self.base_url}/print-queue"
 
@@ -48,23 +49,26 @@ class PrintQueueClient:
             response.raise_for_status()
             result = PrintQueueResponse(**response.json())
             logger.info(f"Submitted successfully: job_id={result.job_id}")
-            return result
+            return result, None
 
         except FileNotFoundError:
             logger.error(f"Cached input file not found: {file_path}")
-            return None
+            return None, "file_not_found"
         except httpx.HTTPStatusError as e:
             logger.error(
                 f"Print Queue submit HTTP error for {filename}: "
                 f"{e.response.status_code} - {e.response.text}"
             )
-            return None
-        except httpx.RequestError as e:
+            return None, "unknown"
+        except httpx.ConnectError as e:
             logger.error(f"Print Queue connection error for {filename}: {e}")
-            return None
+            return None, "print_queue_unavailable"
+        except httpx.RequestError as e:
+            logger.error(f"Print Queue request error for {filename}: {e}")
+            return None, "print_queue_unavailable"
         except Exception as e:
             logger.error(f"Unexpected error submitting {filename}: {e}")
-            return None
+            return None, "unknown"
 
     def poll_until_complete(self, job_id: str) -> PrintJobStatus:
         """Poll the Print Queue until the job completes, fails, or times out.

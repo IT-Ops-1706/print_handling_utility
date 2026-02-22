@@ -67,12 +67,16 @@ class ERPClient:
             def init_poolmanager(self, *args, **kwargs):
                 if _ssl_ctx:
                     kwargs["ssl_context"] = _ssl_ctx
-                kwargs["assert_hostname"] = False
+                    kwargs["assert_hostname"] = False
                 return super().init_poolmanager(*args, **kwargs)
 
-        adapter = _SSLAdapter(max_retries=retry_strategy)
-        self.session.mount("http://", adapter)
-        self.session.mount("https://", adapter)
+        # Plain retry adapter for HTTP (no SSL kwargs)
+        http_adapter = HTTPAdapter(max_retries=retry_strategy)
+        # SSL adapter for HTTPS (with SSL context + assert_hostname)
+        https_adapter = _SSLAdapter(max_retries=retry_strategy)
+
+        self.session.mount("http://", http_adapter)
+        self.session.mount("https://", https_adapter)
 
         self.session.headers.update({
             "User-Agent": (
@@ -173,18 +177,19 @@ class ERPClient:
         """Fetch documents from ERP that need flattening.
 
         Args:
-            from_date: Date string (YYYY-MM-DD) to fetch documents from
+            from_date: Datetime string (e.g. 2026-02-16T13:09:01.300) passed
+                       as the fromDate query parameter.
 
         Returns:
             List of ERPDocument objects filtered to supported doc types
         """
         url = f"{self.base_url}{config.ERP_GET_DOCS_ENDPOINT}"
-        payload = {"date": from_date}
+        params = {"fromDate": from_date}
 
-        logger.info(f"Fetching documents from ERP: {url} (from_date={from_date})")
+        logger.info(f"Fetching documents from ERP: {url} (fromDate={from_date})")
 
         try:
-            response = self._request_with_reauth("POST", url, json=payload)
+            response = self._request_with_reauth("GET", url, params=params)
             response.raise_for_status()
 
             data = response.json()
@@ -213,8 +218,11 @@ class ERPClient:
                     continue
 
                 # Filter: must have base64 content
-                if not doc.fileBase64:
-                    logger.debug(f"Skipping lId={doc.lId} — no fileBase64")
+                if not doc.fileBase64 or not doc.fileBase64.strip():
+                    logger.warning(
+                        f"Skipping lId={doc.lId} (docType={doc.docType}) — "
+                        f"empty or missing fileBase64"
+                    )
                     continue
 
                 documents.append(doc)
@@ -244,7 +252,10 @@ class ERPClient:
         url = f"{self.base_url}{config.ERP_SAVE_FLATTEN_ENDPOINT}"
         payload = request.model_dump()
 
-        logger.info(f"Saving flattened doc to ERP: lId={request.lId}")
+        # Log payload without huge base64
+        debug_payload = payload.copy()
+        debug_payload["fileBase64"] = f"<base64 string ({len(payload.get('fileBase64', ''))} chars)>"
+        logger.info(f"Saving flattened doc payload: {debug_payload}")
 
         try:
             response = self._request_with_reauth("POST", url, json=payload)

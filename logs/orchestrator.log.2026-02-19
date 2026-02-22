@@ -1,0 +1,1519 @@
+2026-02-19 16:08:40 | INFO     | __main__                  | ============================================================
+2026-02-19 16:08:40 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 16:08:40 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 16:08:40 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 16:08:40 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 16:08:40 | INFO     | __main__                  | Batch size: 10
+2026-02-19 16:08:40 | INFO     | __main__                  | Max retries: 3
+2026-02-19 16:08:40 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked']
+2026-02-19 16:08:40 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 16:08:40 | INFO     | __main__                  | ============================================================
+2026-02-19 16:08:40 | INFO     | state_manager             | No existing state file found. Starting fresh.
+2026-02-19 16:08:40 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 16:08:40 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 16:08:40 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T16:08:40.349776 ---
+2026-02-19 16:08:40 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:08:40 | INFO     | orchestrator              | CYCLE START
+2026-02-19 16:08:40 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:08:40 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 16:08:40 | INFO     | orchestrator              | No previous timestamp found, using initial: 2026-02-16T13:09:01.300
+2026-02-19 16:08:40 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (from_date=2026-02-16)
+2026-02-19 16:08:40 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 16:08:40 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 16:08:40 | ERROR    | erp_client                | Unexpected error fetching documents: HTTPConnection.__init__() got an unexpected keyword argument 'assert_hostname'
+2026-02-19 16:08:40 | ERROR    | orchestrator              | FETCH PHASE: Failed to fetch documents: HTTPConnection.__init__() got an unexpected keyword argument 'assert_hostname'
+2026-02-19 16:08:40 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:08:40 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 16:08:40 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:08:40 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 16:08:40 | INFO     | __main__                  | Sending daily email report...
+2026-02-19 16:08:40 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 16:08:40 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 16:08:40 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 16:08:40 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 16:08:40 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 16:08:40 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 16:08:40 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 16:08:40 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: 7027cc4e-8bab-460b-9df9-8d2b01d7ac91
+2026-02-19 16:08:40 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2093
+2026-02-19 16:08:40 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 16:08:41 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 16:08:41 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E95E1E46E0>
+2026-02-19 16:08:41 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001E95E10BDA0> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 16:08:41 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001E95E09EC10>
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'c3e5b252-6a99-452b-b143-c7961e294da7'), (b'client-request-id', b'c3e5b252-6a99-452b-b143-c7961e294da7'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"002","RoleInstance":"PN2PEPF00000751"}}'), (b'Date', b'Thu, 19 Feb 2026 10:38:39 GMT')])
+2026-02-19 16:08:41 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:08:41 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:08:41 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:08:41 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:08:41 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 16:08:41 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 16:10:25 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-19 16:10:25 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-02-19 16:10:27 | INFO     | __main__                  | ============================================================
+2026-02-19 16:10:27 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 16:10:27 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 16:10:27 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 16:10:27 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 16:10:27 | INFO     | __main__                  | Batch size: 10
+2026-02-19 16:10:27 | INFO     | __main__                  | Max retries: 3
+2026-02-19 16:10:27 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked']
+2026-02-19 16:10:27 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 16:10:27 | INFO     | __main__                  | ============================================================
+2026-02-19 16:10:27 | INFO     | state_manager             | Loaded state: 0 active, 0 completed, 0 failed
+2026-02-19 16:10:27 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 16:10:27 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 16:10:27 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T16:10:27.490562 ---
+2026-02-19 16:10:27 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:10:27 | INFO     | orchestrator              | CYCLE START
+2026-02-19 16:10:27 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:10:27 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 16:10:27 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (from_date=2026-02-19)
+2026-02-19 16:10:27 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 16:10:27 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 16:10:27 | ERROR    | erp_client                | Unexpected error fetching documents: HTTPConnection.__init__() got an unexpected keyword argument 'assert_hostname'
+2026-02-19 16:10:27 | ERROR    | orchestrator              | FETCH PHASE: Failed to fetch documents: HTTPConnection.__init__() got an unexpected keyword argument 'assert_hostname'
+2026-02-19 16:10:27 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:10:27 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 16:10:27 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:10:27 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 16:10:27 | INFO     | __main__                  | Sending daily email report...
+2026-02-19 16:10:27 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 16:10:27 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 16:10:27 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 16:10:27 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 16:10:27 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 16:10:27 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 16:10:27 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 16:10:27 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: dd55fa2e-ed0c-4ba6-bc78-a7f46fa8e6ce
+2026-02-19 16:10:27 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2095
+2026-02-19 16:10:27 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 16:10:28 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 16:10:28 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C69C4D4590>
+2026-02-19 16:10:28 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001C69C3FBE30> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 16:10:28 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C69C38EC10>
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'9e37d4ae-c1b8-4a07-801a-abc970648017'), (b'client-request-id', b'9e37d4ae-c1b8-4a07-801a-abc970648017'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"000","RoleInstance":"PN1PEPF00011B13"}}'), (b'Date', b'Thu, 19 Feb 2026 10:40:26 GMT')])
+2026-02-19 16:10:28 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:10:28 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:10:28 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:10:28 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:10:28 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 16:10:28 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 16:10:36 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-19 16:10:36 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-02-19 16:11:56 | INFO     | __main__                  | ============================================================
+2026-02-19 16:11:56 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 16:11:56 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 16:11:56 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 16:11:56 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 16:11:56 | INFO     | __main__                  | Batch size: 10
+2026-02-19 16:11:56 | INFO     | __main__                  | Max retries: 3
+2026-02-19 16:11:56 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked']
+2026-02-19 16:11:56 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 16:11:56 | INFO     | __main__                  | ============================================================
+2026-02-19 16:11:56 | INFO     | state_manager             | Loaded state: 0 active, 0 completed, 0 failed
+2026-02-19 16:11:56 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 16:11:56 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 16:11:56 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T16:11:56.707551 ---
+2026-02-19 16:11:56 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:11:56 | INFO     | orchestrator              | CYCLE START
+2026-02-19 16:11:56 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:11:56 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 16:11:56 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (from_date=2026-02-19)
+2026-02-19 16:11:56 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 16:11:56 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 16:11:56 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 16:11:56 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 16:11:56 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/GetDocsByDate HTTP/1.1" 405 None
+2026-02-19 16:11:56 | ERROR    | erp_client                | ERP fetch failed: 405 Client Error: Method Not Allowed for url: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate
+2026-02-19 16:11:56 | ERROR    | orchestrator              | FETCH PHASE: Failed to fetch documents: 405 Client Error: Method Not Allowed for url: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate
+2026-02-19 16:11:56 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:11:56 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 16:11:56 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:11:56 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 16:11:56 | INFO     | __main__                  | Sending daily email report...
+2026-02-19 16:11:56 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 16:11:56 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 16:11:56 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 16:11:56 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 16:11:56 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 16:11:56 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 16:11:56 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 16:11:56 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: 4e33f1c9-0f86-40a8-bae5-bf1417723e00
+2026-02-19 16:11:57 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2095
+2026-02-19 16:11:57 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 16:11:57 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 16:11:57 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D2D26346E0>
+2026-02-19 16:11:57 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001D2D254BE30> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 16:11:57 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D2D24EAD50>
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'6df33b8d-2e8c-409e-b277-1f05cdc1d010'), (b'client-request-id', b'6df33b8d-2e8c-409e-b277-1f05cdc1d010'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"000","RoleInstance":"PN1PEPF00007965"}}'), (b'Date', b'Thu, 19 Feb 2026 10:41:55 GMT')])
+2026-02-19 16:11:57 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:11:57 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:11:57 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:11:57 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:11:57 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 16:11:57 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 16:12:14 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-19 16:12:14 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-02-19 16:13:28 | INFO     | __main__                  | ============================================================
+2026-02-19 16:13:28 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 16:13:28 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 16:13:28 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 16:13:28 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 16:13:28 | INFO     | __main__                  | Batch size: 10
+2026-02-19 16:13:28 | INFO     | __main__                  | Max retries: 3
+2026-02-19 16:13:28 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked']
+2026-02-19 16:13:28 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 16:13:28 | INFO     | __main__                  | ============================================================
+2026-02-19 16:13:28 | INFO     | state_manager             | No existing state file found. Starting fresh.
+2026-02-19 16:13:28 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 16:13:28 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 16:13:28 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T16:13:28.746838 ---
+2026-02-19 16:13:28 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:13:28 | INFO     | orchestrator              | CYCLE START
+2026-02-19 16:13:28 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:13:28 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 16:13:28 | INFO     | orchestrator              | No previous timestamp found, using initial: 2026-02-16T13:09:01.300
+2026-02-19 16:13:28 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (from_date=2026-02-16)
+2026-02-19 16:13:28 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 16:13:28 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 16:13:28 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 16:13:28 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 16:13:28 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/GetDocsByDate HTTP/1.1" 405 None
+2026-02-19 16:13:28 | ERROR    | erp_client                | ERP fetch failed: 405 Client Error: Method Not Allowed for url: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate
+2026-02-19 16:13:28 | ERROR    | orchestrator              | FETCH PHASE: Failed to fetch documents: 405 Client Error: Method Not Allowed for url: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate
+2026-02-19 16:13:28 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:13:28 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 16:13:28 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:13:28 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 16:13:28 | INFO     | __main__                  | Sending daily email report...
+2026-02-19 16:13:28 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 16:13:28 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 16:13:28 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 16:13:29 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 16:13:29 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 16:13:29 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 16:13:29 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 16:13:29 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: 55c2c5d9-0f00-411b-8953-b7d7f5d78902
+2026-02-19 16:13:29 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2095
+2026-02-19 16:13:29 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 16:13:29 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 16:13:29 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C9907E4830>
+2026-02-19 16:13:29 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001C990703D10> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 16:13:29 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C99069AD50>
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'1ee7d4be-7f3e-4104-a244-0652ba1ae66d'), (b'client-request-id', b'1ee7d4be-7f3e-4104-a244-0652ba1ae66d'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"000","RoleInstance":"PN1PEPF0000703A"}}'), (b'Date', b'Thu, 19 Feb 2026 10:43:27 GMT')])
+2026-02-19 16:13:29 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:13:29 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:13:29 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:13:29 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:13:29 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 16:13:29 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 16:13:40 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-19 16:13:40 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-02-19 16:15:50 | INFO     | __main__                  | ============================================================
+2026-02-19 16:15:50 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 16:15:50 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 16:15:50 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 16:15:50 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 16:15:50 | INFO     | __main__                  | Batch size: 10
+2026-02-19 16:15:50 | INFO     | __main__                  | Max retries: 3
+2026-02-19 16:15:50 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked']
+2026-02-19 16:15:50 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 16:15:50 | INFO     | __main__                  | ============================================================
+2026-02-19 16:15:50 | INFO     | state_manager             | No existing state file found. Starting fresh.
+2026-02-19 16:15:50 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 16:15:50 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 16:15:50 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T16:15:50.083335 ---
+2026-02-19 16:15:50 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:15:50 | INFO     | orchestrator              | CYCLE START
+2026-02-19 16:15:50 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:15:50 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 16:15:50 | INFO     | orchestrator              | No previous timestamp found, using initial: 2026-02-16T13:09:01.300
+2026-02-19 16:15:50 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-16T13:09:01.300)
+2026-02-19 16:15:50 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 16:15:50 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 16:15:51 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 16:15:51 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 16:15:51 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-16T13%3A09%3A01.300 HTTP/1.1" 200 None
+2026-02-19 16:15:58 | INFO     | erp_client                | Fetched 5 total documents, 5 match supported types with fileBase64
+2026-02-19 16:15:58 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391553_BOE5.pdf (362981 bytes)
+2026-02-19 16:15:58 | DEBUG    | state_manager             | Added active job: doc_2391553 status=fetched
+2026-02-19 16:15:58 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391550_BOE2.pdf (380213 bytes)
+2026-02-19 16:15:58 | DEBUG    | state_manager             | Added active job: doc_2391550 status=fetched
+2026-02-19 16:15:58 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391551_BOE3.pdf (369387 bytes)
+2026-02-19 16:15:58 | DEBUG    | state_manager             | Added active job: doc_2391551 status=fetched
+2026-02-19 16:15:58 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf (450281 bytes)
+2026-02-19 16:15:58 | DEBUG    | state_manager             | Added active job: doc_2391552 status=fetched
+2026-02-19 16:15:58 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391549_BOE1.pdf (347607 bytes)
+2026-02-19 16:15:58 | DEBUG    | state_manager             | Added active job: doc_2391549 status=fetched
+2026-02-19 16:15:58 | INFO     | orchestrator              | FETCH PHASE: 5 new documents to process
+2026-02-19 16:15:58 | INFO     | orchestrator              | PROCESS PHASE: Batch 1/1 (5 jobs)
+2026-02-19 16:15:58 | INFO     | orchestrator              | Submitting lId=2391553: BOE5.pdf
+2026-02-19 16:15:58 | INFO     | print_queue_client        | Submitting to Print Queue: BOE5.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391553_BOE5.pdf)
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F84980>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:45:57 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:15:58 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:15:58 | INFO     | print_queue_client        | Submitted successfully: job_id=job_1_9fbb8639
+2026-02-19 16:15:58 | INFO     | orchestrator              | Polling job job_1_9fbb8639 for lId=2391553
+2026-02-19 16:15:58 | INFO     | print_queue_client        | Polling job job_1_9fbb8639 every 30s (timeout: 90s)...
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F88410>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:45:58 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:15:58 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_9fbb8639 "HTTP/1.1 200 OK"
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:15:58 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:15:58 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:15:58 | DEBUG    | print_queue_client        | Job job_1_9fbb8639 status: processing. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:16:29 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:16:29 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F89D10>
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:46:29 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:16:29 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_9fbb8639 "HTTP/1.1 200 OK"
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:16:29 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:16:29 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:16:29 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:16:29 | DEBUG    | print_queue_client        | Job job_1_9fbb8639 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:16:59 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:16:59 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F8D350>
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:46:59 GMT'), (b'server', b'uvicorn'), (b'content-length', b'119052'), (b'content-type', b'application/json')])
+2026-02-19 16:16:59 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_9fbb8639 "HTTP/1.1 200 OK"
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:16:59 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:16:59 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:16:59 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:16:59 | INFO     | print_queue_client        | Job job_1_9fbb8639 completed in 61s
+2026-02-19 16:16:59 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391553_BOE5_flatten.pdf (88898 bytes)
+2026-02-19 16:16:59 | INFO     | erp_client                | Saving flattened doc to ERP: lId=2391553
+2026-02-19 16:16:59 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-02-19 16:16:59 | INFO     | erp_client                | ERP save successful for lId=2391553
+2026-02-19 16:16:59 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391553_BOE5.pdf
+2026-02-19 16:16:59 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391553_BOE5_flatten.pdf
+2026-02-19 16:16:59 | INFO     | state_manager             | Moved doc_2391553 to completed
+2026-02-19 16:16:59 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391553
+2026-02-19 16:16:59 | INFO     | orchestrator              | Submitting lId=2391550: BOE2.pdf
+2026-02-19 16:16:59 | INFO     | print_queue_client        | Submitting to Print Queue: BOE2.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391550_BOE2.pdf)
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F8E8B0>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:46:59 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:17:00 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:17:00 | INFO     | print_queue_client        | Submitted successfully: job_id=job_2_d8c005e2
+2026-02-19 16:17:00 | INFO     | orchestrator              | Polling job job_2_d8c005e2 for lId=2391550
+2026-02-19 16:17:00 | INFO     | print_queue_client        | Polling job job_2_d8c005e2 every 30s (timeout: 90s)...
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F7E0F0>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:47:00 GMT'), (b'server', b'uvicorn'), (b'content-length', b'354'), (b'content-type', b'application/json')])
+2026-02-19 16:17:00 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_d8c005e2 "HTTP/1.1 200 OK"
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:17:00 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:17:00 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:17:00 | DEBUG    | print_queue_client        | Job job_2_d8c005e2 status: queued. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:17:30 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:17:30 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F07570>
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:47:29 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:17:30 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_d8c005e2 "HTTP/1.1 200 OK"
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:17:30 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:17:30 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:17:30 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:17:30 | DEBUG    | print_queue_client        | Job job_2_d8c005e2 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:18:00 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:18:00 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3FA09E0>
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:48:00 GMT'), (b'server', b'uvicorn'), (b'content-length', b'561'), (b'content-type', b'application/json')])
+2026-02-19 16:18:00 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_d8c005e2 "HTTP/1.1 200 OK"
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:18:00 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:18:00 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:18:00 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:18:00 | WARNING  | print_queue_client        | Job job_2_d8c005e2 failed: error_type=timeout, error=File save timed out after 20 seconds. Output path: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Printing\outputs\job_2_d8c005e2\BOE2_printed.pdf
+2026-02-19 16:18:00 | WARNING  | orchestrator              | Job lId=2391550 failed [timeout], scheduled for retry (1/3): File save timed out after 20 seconds. Output path: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Printing\outputs\job_2_d8c005e2\BOE2_printed.pdf
+2026-02-19 16:18:00 | INFO     | orchestrator              | Submitting lId=2391551: BOE3.pdf
+2026-02-19 16:18:00 | INFO     | print_queue_client        | Submitting to Print Queue: BOE3.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391551_BOE3.pdf)
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3FA8350>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:48:00 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:18:01 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:18:01 | INFO     | print_queue_client        | Submitted successfully: job_id=job_3_4e4bc802
+2026-02-19 16:18:01 | INFO     | orchestrator              | Polling job job_3_4e4bc802 for lId=2391551
+2026-02-19 16:18:01 | INFO     | print_queue_client        | Polling job job_3_4e4bc802 every 30s (timeout: 90s)...
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3FA9650>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:48:00 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:18:01 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_4e4bc802 "HTTP/1.1 200 OK"
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:18:01 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:18:01 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:18:01 | DEBUG    | print_queue_client        | Job job_3_4e4bc802 status: processing. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:18:31 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:18:31 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3FB49B0>
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:48:31 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:18:31 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_4e4bc802 "HTTP/1.1 200 OK"
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:18:31 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:18:31 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:18:31 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:18:31 | DEBUG    | print_queue_client        | Job job_3_4e4bc802 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:19:01 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:19:01 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3FB5C70>
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:49:01 GMT'), (b'server', b'uvicorn'), (b'content-length', b'127676'), (b'content-type', b'application/json')])
+2026-02-19 16:19:01 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_4e4bc802 "HTTP/1.1 200 OK"
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:19:01 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:19:01 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:19:01 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:19:01 | INFO     | print_queue_client        | Job job_3_4e4bc802 completed in 61s
+2026-02-19 16:19:01 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391551_BOE3_flatten.pdf (95366 bytes)
+2026-02-19 16:19:01 | INFO     | erp_client                | Saving flattened doc to ERP: lId=2391551
+2026-02-19 16:19:01 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 16:19:01 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-02-19 16:19:01 | INFO     | erp_client                | ERP save successful for lId=2391551
+2026-02-19 16:19:01 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391551_BOE3.pdf
+2026-02-19 16:19:01 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391551_BOE3_flatten.pdf
+2026-02-19 16:19:01 | INFO     | state_manager             | Moved doc_2391551 to completed
+2026-02-19 16:19:01 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391551
+2026-02-19 16:19:01 | INFO     | orchestrator              | Submitting lId=2391552: BOE4.pdf
+2026-02-19 16:19:01 | INFO     | print_queue_client        | Submitting to Print Queue: BOE4.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf)
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F71550>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:49:01 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:19:02 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:19:02 | INFO     | print_queue_client        | Submitted successfully: job_id=job_4_d93a4c2e
+2026-02-19 16:19:02 | INFO     | orchestrator              | Polling job job_4_d93a4c2e for lId=2391552
+2026-02-19 16:19:02 | INFO     | print_queue_client        | Polling job job_4_d93a4c2e every 30s (timeout: 90s)...
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F72C10>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:49:02 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:19:02 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_4_d93a4c2e "HTTP/1.1 200 OK"
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:19:02 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:19:02 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:19:02 | DEBUG    | print_queue_client        | Job job_4_d93a4c2e status: processing. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:19:32 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:19:32 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F79570>
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:49:32 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:19:32 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_4_d93a4c2e "HTTP/1.1 200 OK"
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:19:32 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:19:32 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:19:32 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:19:32 | DEBUG    | print_queue_client        | Job job_4_d93a4c2e status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F29E50>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:50:02 GMT'), (b'server', b'uvicorn'), (b'content-length', b'233340'), (b'content-type', b'application/json')])
+2026-02-19 16:20:03 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_4_d93a4c2e "HTTP/1.1 200 OK"
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:20:03 | INFO     | print_queue_client        | Job job_4_d93a4c2e completed in 61s
+2026-02-19 16:20:03 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391552_BOE4_flatten.pdf (174614 bytes)
+2026-02-19 16:20:03 | INFO     | erp_client                | Saving flattened doc to ERP: lId=2391552
+2026-02-19 16:20:03 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-02-19 16:20:03 | INFO     | erp_client                | ERP save successful for lId=2391552
+2026-02-19 16:20:03 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf
+2026-02-19 16:20:03 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391552_BOE4_flatten.pdf
+2026-02-19 16:20:03 | INFO     | state_manager             | Moved doc_2391552 to completed
+2026-02-19 16:20:03 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391552
+2026-02-19 16:20:03 | INFO     | orchestrator              | Submitting lId=2391549: BOE1.pdf
+2026-02-19 16:20:03 | INFO     | print_queue_client        | Submitting to Print Queue: BOE1.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391549_BOE1.pdf)
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F2ABD0>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:50:03 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:20:03 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:20:03 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:20:03 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:20:03 | INFO     | print_queue_client        | Submitted successfully: job_id=job_5_ca7c32d6
+2026-02-19 16:20:03 | INFO     | orchestrator              | Polling job job_5_ca7c32d6 for lId=2391549
+2026-02-19 16:20:03 | INFO     | print_queue_client        | Polling job job_5_ca7c32d6 every 30s (timeout: 90s)...
+2026-02-19 16:20:04 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:20:04 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F51D30>
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:50:03 GMT'), (b'server', b'uvicorn'), (b'content-length', b'354'), (b'content-type', b'application/json')])
+2026-02-19 16:20:04 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_5_ca7c32d6 "HTTP/1.1 200 OK"
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:20:04 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:20:04 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:20:04 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:20:04 | DEBUG    | print_queue_client        | Job job_5_ca7c32d6 status: queued. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:20:34 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:20:34 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001D5D3F52830>
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 10:50:34 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:20:34 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_5_ca7c32d6 "HTTP/1.1 200 OK"
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:20:34 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:20:34 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:20:34 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:20:34 | DEBUG    | print_queue_client        | Job job_5_ca7c32d6 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:29:56 | INFO     | __main__                  | ============================================================
+2026-02-19 16:29:56 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 16:29:56 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 16:29:56 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 16:29:56 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 16:29:56 | INFO     | __main__                  | Batch size: 10
+2026-02-19 16:29:56 | INFO     | __main__                  | Max retries: 3
+2026-02-19 16:29:56 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked']
+2026-02-19 16:29:56 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 16:29:56 | INFO     | __main__                  | ============================================================
+2026-02-19 16:29:56 | INFO     | state_manager             | Loaded state: 0 active jobs
+2026-02-19 16:29:56 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 16:29:56 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 16:29:56 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T16:29:56.445521 ---
+2026-02-19 16:29:56 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:29:56 | INFO     | orchestrator              | CYCLE START
+2026-02-19 16:29:56 | INFO     | orchestrator              | ============================================================
+2026-02-19 16:29:56 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 16:29:56 | INFO     | orchestrator              | No previous timestamp found, using initial: 2026-02-16T13:09:01.300
+2026-02-19 16:29:56 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-16T13:09:01.300)
+2026-02-19 16:29:56 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 16:29:56 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 16:29:56 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 16:29:56 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 16:29:56 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-16T13%3A09%3A01.300 HTTP/1.1" 200 None
+2026-02-19 16:29:57 | INFO     | erp_client                | Fetched 5 total documents, 5 match supported types with fileBase64
+2026-02-19 16:29:57 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391549_BOE1.pdf (347607 bytes)
+2026-02-19 16:29:57 | DEBUG    | state_manager             | Added active job: doc_2391549 status=fetched
+2026-02-19 16:29:57 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391553_BOE5.pdf (362981 bytes)
+2026-02-19 16:29:57 | DEBUG    | state_manager             | Added active job: doc_2391553 status=fetched
+2026-02-19 16:29:57 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391550_BOE2.pdf (380213 bytes)
+2026-02-19 16:29:57 | DEBUG    | state_manager             | Added active job: doc_2391550 status=fetched
+2026-02-19 16:29:57 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391551_BOE3.pdf (369387 bytes)
+2026-02-19 16:29:57 | DEBUG    | state_manager             | Added active job: doc_2391551 status=fetched
+2026-02-19 16:29:57 | DEBUG    | orchestrator              | Cached input file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf (450281 bytes)
+2026-02-19 16:29:57 | DEBUG    | state_manager             | Added active job: doc_2391552 status=fetched
+2026-02-19 16:29:57 | INFO     | orchestrator              | FETCH PHASE: 5 new documents to process
+2026-02-19 16:29:57 | INFO     | orchestrator              | PROCESS PHASE: Batch 1/1 (5 jobs)
+2026-02-19 16:29:57 | INFO     | orchestrator              | Submitting lId=2391549: BOE1.pdf
+2026-02-19 16:29:57 | INFO     | print_queue_client        | Submitting to Print Queue: BOE1.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391549_BOE1.pdf)
+2026-02-19 16:29:58 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | connect_tcp.failed exception=ConnectError(ConnectionRefusedError(10061, 'No connection could be made because the target machine actively refused it', None, 10061, None))
+2026-02-19 16:30:00 | ERROR    | print_queue_client        | Print Queue connection error for BOE1.pdf: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-02-19 16:30:00 | ERROR    | orchestrator              | Submit failed for lId=2391549
+2026-02-19 16:30:00 | WARNING  | state_manager             | Moved doc_2391549 to permanently_failed (Feb_2026/19_02)
+2026-02-19 16:30:00 | ERROR    | orchestrator              | Job lId=2391549 permanently failed [unknown] (non-retryable): Failed to submit to print queue
+2026-02-19 16:30:00 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 16:30:00 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 16:30:00 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 16:30:00 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 16:30:00 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 16:30:00 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 16:30:00 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 16:30:00 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: 57b98406-a509-4d67-a5d1-fbc24914bdb9
+2026-02-19 16:30:00 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2095
+2026-02-19 16:30:00 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C25817F0>
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179C24B3F50> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C259D1D0>
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'4e6a4f10-bfd5-411b-ba84-9a171053ec53'), (b'client-request-id', b'4e6a4f10-bfd5-411b-ba84-9a171053ec53'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"001","RoleInstance":"PN3PEPF000007BD"}}'), (b'Date', b'Thu, 19 Feb 2026 10:59:59 GMT')])
+2026-02-19 16:30:00 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:30:00 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:30:00 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:30:00 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 16:30:00 | INFO     | orchestrator              | Submitting lId=2391553: BOE5.pdf
+2026-02-19 16:30:00 | INFO     | print_queue_client        | Submitting to Print Queue: BOE5.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391553_BOE5.pdf)
+2026-02-19 16:30:01 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | connect_tcp.failed exception=ConnectError(ConnectionRefusedError(10061, 'No connection could be made because the target machine actively refused it', None, 10061, None))
+2026-02-19 16:30:03 | ERROR    | print_queue_client        | Print Queue connection error for BOE5.pdf: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-02-19 16:30:03 | ERROR    | orchestrator              | Submit failed for lId=2391553
+2026-02-19 16:30:03 | WARNING  | state_manager             | Moved doc_2391553 to permanently_failed (Feb_2026/19_02)
+2026-02-19 16:30:03 | ERROR    | orchestrator              | Job lId=2391553 permanently failed [unknown] (non-retryable): Failed to submit to print queue
+2026-02-19 16:30:03 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 16:30:03 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 16:30:03 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 16:30:03 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 16:30:03 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 16:30:03 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 16:30:03 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 16:30:03 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: f46b041b-2aff-44aa-a8b7-3065350c7f3e
+2026-02-19 16:30:03 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2088
+2026-02-19 16:30:03 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C259F4D0>
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x00000179C2590830> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C25A1CD0>
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'b12d83bd-7fa8-460a-aacc-b3e232f528b6'), (b'client-request-id', b'b12d83bd-7fa8-460a-aacc-b3e232f528b6'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"001","RoleInstance":"PN3PEPF0000062F"}}'), (b'Date', b'Thu, 19 Feb 2026 11:00:01 GMT')])
+2026-02-19 16:30:03 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:30:03 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:30:03 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:30:03 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 16:30:03 | INFO     | orchestrator              | Submitting lId=2391550: BOE2.pdf
+2026-02-19 16:30:03 | INFO     | print_queue_client        | Submitting to Print Queue: BOE2.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391550_BOE2.pdf)
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C25A2780>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:00:04 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:30:04 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:30:04 | INFO     | print_queue_client        | Submitted successfully: job_id=job_1_e1c4aa17
+2026-02-19 16:30:04 | INFO     | orchestrator              | Polling job job_1_e1c4aa17 for lId=2391550
+2026-02-19 16:30:04 | INFO     | print_queue_client        | Polling job job_1_e1c4aa17 every 30s (timeout: 90s)...
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C2578950>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:00:04 GMT'), (b'server', b'uvicorn'), (b'content-length', b'354'), (b'content-type', b'application/json')])
+2026-02-19 16:30:04 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_e1c4aa17 "HTTP/1.1 200 OK"
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:30:04 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:30:04 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:30:04 | DEBUG    | print_queue_client        | Job job_1_e1c4aa17 status: queued. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:30:34 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:30:34 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C2509F20>
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:00:34 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:30:34 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_e1c4aa17 "HTTP/1.1 200 OK"
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:30:34 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:30:34 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:30:34 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:30:34 | DEBUG    | print_queue_client        | Job job_1_e1c4aa17 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C250B8A0>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:01:04 GMT'), (b'server', b'uvicorn'), (b'content-length', b'144096'), (b'content-type', b'application/json')])
+2026-02-19 16:31:05 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_e1c4aa17 "HTTP/1.1 200 OK"
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:31:05 | INFO     | print_queue_client        | Job job_1_e1c4aa17 completed in 61s
+2026-02-19 16:31:05 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391550_BOE2_flatten.pdf (107680 bytes)
+2026-02-19 16:31:05 | INFO     | erp_client                | Saving flattened doc to ERP: lId=2391550
+2026-02-19 16:31:05 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-02-19 16:31:05 | INFO     | erp_client                | ERP save successful for lId=2391550
+2026-02-19 16:31:05 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391550_BOE2.pdf
+2026-02-19 16:31:05 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391550_BOE2_flatten.pdf
+2026-02-19 16:31:05 | INFO     | state_manager             | Moved doc_2391550 to completed (Feb_2026/19_02)
+2026-02-19 16:31:05 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391550
+2026-02-19 16:31:05 | INFO     | orchestrator              | Submitting lId=2391551: BOE3.pdf
+2026-02-19 16:31:05 | INFO     | print_queue_client        | Submitting to Print Queue: BOE3.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391551_BOE3.pdf)
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C2547D50>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:01:05 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:31:05 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:31:05 | INFO     | print_queue_client        | Submitted successfully: job_id=job_2_63b1eb14
+2026-02-19 16:31:05 | INFO     | orchestrator              | Polling job job_2_63b1eb14 for lId=2391551
+2026-02-19 16:31:05 | INFO     | print_queue_client        | Polling job job_2_63b1eb14 every 30s (timeout: 90s)...
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C25BC750>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:01:05 GMT'), (b'server', b'uvicorn'), (b'content-length', b'354'), (b'content-type', b'application/json')])
+2026-02-19 16:31:05 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_63b1eb14 "HTTP/1.1 200 OK"
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:31:05 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:31:05 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:31:05 | DEBUG    | print_queue_client        | Job job_2_63b1eb14 status: queued. Elapsed: 0s. Waiting 30s...
+2026-02-19 16:31:36 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:31:36 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C25AC320>
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:01:35 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 16:31:36 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_63b1eb14 "HTTP/1.1 200 OK"
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:31:36 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:31:36 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:31:36 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:31:36 | DEBUG    | print_queue_client        | Job job_2_63b1eb14 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 16:32:06 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:32:06 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C25AD040>
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:02:05 GMT'), (b'server', b'uvicorn'), (b'content-length', b'127676'), (b'content-type', b'application/json')])
+2026-02-19 16:32:06 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_63b1eb14 "HTTP/1.1 200 OK"
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:32:06 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:32:06 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:32:06 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:32:06 | INFO     | print_queue_client        | Job job_2_63b1eb14 completed in 61s
+2026-02-19 16:32:06 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391551_BOE3_flatten.pdf (95366 bytes)
+2026-02-19 16:32:06 | INFO     | erp_client                | Saving flattened doc to ERP: lId=2391551
+2026-02-19 16:32:06 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-02-19 16:32:06 | INFO     | erp_client                | ERP save successful for lId=2391551
+2026-02-19 16:32:06 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391551_BOE3.pdf
+2026-02-19 16:32:06 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391551_BOE3_flatten.pdf
+2026-02-19 16:32:06 | INFO     | state_manager             | Moved doc_2391551 to completed (Feb_2026/19_02)
+2026-02-19 16:32:06 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391551
+2026-02-19 16:32:06 | INFO     | orchestrator              | Submitting lId=2391552: BOE4.pdf
+2026-02-19 16:32:06 | INFO     | print_queue_client        | Submitting to Print Queue: BOE4.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf)
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C2572430>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:02:06 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 16:32:07 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:32:07 | INFO     | print_queue_client        | Submitted successfully: job_id=job_3_3e1ba781
+2026-02-19 16:32:07 | INFO     | orchestrator              | Polling job job_3_3e1ba781 for lId=2391552
+2026-02-19 16:32:07 | INFO     | print_queue_client        | Polling job job_3_3e1ba781 every 30s (timeout: 90s)...
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000179C2572DD0>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:02:06 GMT'), (b'server', b'uvicorn'), (b'content-length', b'354'), (b'content-type', b'application/json')])
+2026-02-19 16:32:07 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_3e1ba781 "HTTP/1.1 200 OK"
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 16:32:07 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 16:32:07 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 16:32:07 | DEBUG    | print_queue_client        | Job job_3_3e1ba781 status: queued. Elapsed: 0s. Waiting 30s...
+2026-02-19 17:06:50 | INFO     | __main__                  | ============================================================
+2026-02-19 17:06:50 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 17:06:50 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 17:06:50 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 17:06:50 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 17:06:50 | INFO     | __main__                  | Batch size: 10
+2026-02-19 17:06:50 | INFO     | __main__                  | Max retries: 3
+2026-02-19 17:06:50 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-02-19 17:06:50 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 17:06:50 | INFO     | __main__                  | ============================================================
+2026-02-19 17:06:50 | WARNING  | state_manager             | Recovered 1 interrupted jobs to pending_retry
+2026-02-19 17:06:50 | INFO     | state_manager             | Loaded state: 1 active jobs
+2026-02-19 17:06:50 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 17:06:50 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 17:06:50 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T17:06:50.736111 ---
+2026-02-19 17:06:50 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:06:50 | INFO     | orchestrator              | CYCLE START
+2026-02-19 17:06:50 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:06:50 | INFO     | orchestrator              | RETRY PHASE: 1 jobs to retry
+2026-02-19 17:06:50 | INFO     | orchestrator              | Retrying lId=2391552 (attempt 1/3)
+2026-02-19 17:06:50 | INFO     | orchestrator              | Submitting lId=2391552: BOE4.pdf
+2026-02-19 17:06:50 | INFO     | print_queue_client        | Submitting to Print Queue: BOE4.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf)
+2026-02-19 17:06:51 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 17:06:53 | DEBUG    | httpcore.connection       | connect_tcp.failed exception=ConnectError(ConnectionRefusedError(10061, 'No connection could be made because the target machine actively refused it', None, 10061, None))
+2026-02-19 17:06:53 | ERROR    | print_queue_client        | Print Queue connection error for BOE4.pdf: [WinError 10061] No connection could be made because the target machine actively refused it
+2026-02-19 17:06:53 | ERROR    | orchestrator              | Submit failed for lId=2391552
+2026-02-19 17:06:53 | WARNING  | orchestrator              | Job lId=2391552 failed [print_queue_unavailable], scheduled for retry (1/3): Failed to submit to print queue
+2026-02-19 17:06:53 | INFO     | orchestrator              | No previous timestamp found, using initial: 2026-02-16T13:09:01.300
+2026-02-19 17:06:53 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-16T13:09:01.300)
+2026-02-19 17:06:53 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 17:06:53 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 17:06:53 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 17:06:53 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 17:06:54 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-16T13%3A09%3A01.300 HTTP/1.1" 200 None
+2026-02-19 17:07:00 | INFO     | erp_client                | Fetched 5 total documents, 5 match supported types with fileBase64
+2026-02-19 17:07:01 | DEBUG    | orchestrator              | Skipping already tracked document lId=2391549
+2026-02-19 17:07:01 | DEBUG    | orchestrator              | Skipping already tracked document lId=2391553
+2026-02-19 17:07:01 | DEBUG    | orchestrator              | Skipping already tracked document lId=2391550
+2026-02-19 17:07:01 | DEBUG    | orchestrator              | Skipping already tracked document lId=2391551
+2026-02-19 17:07:01 | DEBUG    | orchestrator              | Skipping already tracked document lId=2391552
+2026-02-19 17:07:01 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 17:07:01 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:07:01 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 1, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 1, 'saved_to_erp': 0}
+2026-02-19 17:07:01 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:07:01 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=1, retried=1
+2026-02-19 17:07:01 | INFO     | __main__                  | Sending daily email report...
+2026-02-19 17:07:01 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 17:07:01 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 17:07:01 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 17:07:01 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 17:07:01 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 17:07:01 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 17:07:01 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 17:07:01 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: d15534b6-9470-450c-8806-4aa2a6eb4843
+2026-02-19 17:07:01 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2088
+2026-02-19 17:07:01 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 17:07:01 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 17:07:01 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001A68BCADD30>
+2026-02-19 17:07:01 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x000001A68BBD7E30> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 17:07:01 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001A68BCD0F50>
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'c8b1a434-e0d5-4cf7-a0be-2ec419d90822'), (b'client-request-id', b'c8b1a434-e0d5-4cf7-a0be-2ec419d90822'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"002","RoleInstance":"PN2PEPF00000277"}}'), (b'Date', b'Thu, 19 Feb 2026 11:36:59 GMT')])
+2026-02-19 17:07:01 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 17:07:01 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 17:07:01 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 17:07:01 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 17:07:01 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 17:07:01 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 17:07:44 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-19 17:07:44 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-02-19 17:09:30 | INFO     | __main__                  | ============================================================
+2026-02-19 17:09:30 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-19 17:09:30 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-19 17:09:30 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-19 17:09:30 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-19 17:09:30 | INFO     | __main__                  | Batch size: 10
+2026-02-19 17:09:30 | INFO     | __main__                  | Max retries: 3
+2026-02-19 17:09:30 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-02-19 17:09:30 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-19 17:09:30 | INFO     | __main__                  | ============================================================
+2026-02-19 17:09:30 | INFO     | state_manager             | Loaded state: 1 active jobs
+2026-02-19 17:09:30 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-19 17:09:30 | INFO     | orchestrator              | Email notifications enabled
+2026-02-19 17:09:30 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-19T17:09:30.187189 ---
+2026-02-19 17:09:30 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:09:30 | INFO     | orchestrator              | CYCLE START
+2026-02-19 17:09:30 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:09:30 | INFO     | orchestrator              | RETRY PHASE: 1 jobs to retry
+2026-02-19 17:09:30 | INFO     | orchestrator              | Retrying lId=2391552 (attempt 2/3)
+2026-02-19 17:09:30 | INFO     | orchestrator              | Submitting lId=2391552: BOE4.pdf
+2026-02-19 17:09:30 | INFO     | print_queue_client        | Submitting to Print Queue: BOE4.pdf (from C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf)
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000258BB10C830>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:39:29 GMT'), (b'server', b'uvicorn'), (b'content-length', b'109'), (b'content-type', b'application/json')])
+2026-02-19 17:09:30 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 17:09:30 | INFO     | print_queue_client        | Submitted successfully: job_id=job_1_b44252c3
+2026-02-19 17:09:30 | INFO     | orchestrator              | Polling job job_1_b44252c3 for lId=2391552
+2026-02-19 17:09:30 | INFO     | print_queue_client        | Polling job job_1_b44252c3 every 30s (timeout: 90s)...
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000258BB114550>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:39:30 GMT'), (b'server', b'uvicorn'), (b'content-length', b'354'), (b'content-type', b'application/json')])
+2026-02-19 17:09:30 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_b44252c3 "HTTP/1.1 200 OK"
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 17:09:30 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 17:09:30 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 17:09:30 | DEBUG    | print_queue_client        | Job job_1_b44252c3 status: queued. Elapsed: 0s. Waiting 30s...
+2026-02-19 17:10:01 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 17:10:01 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000258BB115D10>
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:40:00 GMT'), (b'server', b'uvicorn'), (b'content-length', b'358'), (b'content-type', b'application/json')])
+2026-02-19 17:10:01 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_b44252c3 "HTTP/1.1 200 OK"
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 17:10:01 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 17:10:01 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 17:10:01 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 17:10:01 | DEBUG    | print_queue_client        | Job job_1_b44252c3 status: processing. Elapsed: 30s. Waiting 30s...
+2026-02-19 17:10:31 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-02-19 17:10:31 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000258BB119810>
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 19 Feb 2026 11:40:31 GMT'), (b'server', b'uvicorn'), (b'content-length', b'233344'), (b'content-type', b'application/json')])
+2026-02-19 17:10:31 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_b44252c3 "HTTP/1.1 200 OK"
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 17:10:31 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 17:10:31 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 17:10:31 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 17:10:31 | INFO     | print_queue_client        | Job job_1_b44252c3 completed in 61s
+2026-02-19 17:10:31 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391552_BOE4_flatten.pdf (174616 bytes)
+2026-02-19 17:10:31 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391552, 'jobId': 662158, 'docPath': 'SKFI_J22n\\CB02692DLOI2425\\', 'fileName': 'BOE4_flatten.pdf', 'docType': 126, 'flattenQueueId': 'job_1_b44252c3', 'flattenStatusId': 2, 'fileBase64': '<base64 string (232824 chars)>'}
+2026-02-19 17:10:31 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 17:10:31 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 154.84.227.120:440
+2026-02-19 17:10:31 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 17:10:31 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 17:10:31 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-02-19 17:10:31 | INFO     | erp_client                | ERP save successful for lId=2391552
+2026-02-19 17:10:31 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\input_2391552_BOE4.pdf
+2026-02-19 17:10:31 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\Shubham Gupta\OneDrive - uTouch Solution\Documents\PDF Utility\Flatten Orchestrator\cache\flatten_2391552_BOE4_flatten.pdf
+2026-02-19 17:10:31 | INFO     | state_manager             | Moved doc_2391552 to completed (Feb_2026/19_02)
+2026-02-19 17:10:31 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391552
+2026-02-19 17:10:31 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T17:07:01.000794)
+2026-02-19 17:10:31 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T17%3A07%3A01.000794 HTTP/1.1" 200 None
+2026-02-19 17:10:31 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 17:10:31 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 17:10:31 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:10:31 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 1, 'failed': 0, 'saved_to_erp': 1}
+2026-02-19 17:10:31 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:10:31 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=1, saved=1, failed=0, retried=0
+2026-02-19 17:10:31 | INFO     | __main__                  | Sending daily email report...
+2026-02-19 17:10:31 | DEBUG    | urllib3.util.retry        | Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+2026-02-19 17:10:31 | DEBUG    | msal.authority            | Initializing with Entra authority: https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a
+2026-02-19 17:10:31 | DEBUG    | urllib3.connectionpool    | Starting new HTTPS connection (1): login.microsoftonline.com:443
+2026-02-19 17:10:32 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "GET /309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration HTTP/1.1" 200 1964
+2026-02-19 17:10:32 | DEBUG    | msal.authority            | openid_config("https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic', 'self_signed_tls_client_auth'], 'jwks_uri': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/kerberos', 'mtls_endpoint_aliases': {'token_endpoint': 'https://mtlsauth.microsoft.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token'}, 'tls_client_certificate_bound_access_tokens': True, 'tenant_region_scope': 'AS', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+2026-02-19 17:10:32 | DEBUG    | msal.application          | Broker enabled? None
+2026-02-19 17:10:32 | DEBUG    | msal.application          | Region to be used: None
+2026-02-19 17:10:32 | DEBUG    | msal.telemetry            | Generate or reuse correlation_id: caf7b5b3-f35a-49b7-86d5-a6ab4201b66e
+2026-02-19 17:10:32 | DEBUG    | urllib3.connectionpool    | https://login.microsoftonline.com:443 "POST /309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token HTTP/1.1" 200 2089
+2026-02-19 17:10:32 | DEBUG    | msal.token_cache          | event={
+    "client_id": "ad11daaa-7b91-4695-92c9-da94f7af8dee",
+    "data": {
+        "claims": null,
+        "scope": [
+            "https://graph.microsoft.com/.default"
+        ]
+    },
+    "environment": "login.microsoftonline.com",
+    "grant_type": "client_credentials",
+    "params": null,
+    "response": {
+        "access_token": "********",
+        "expires_in": 3599,
+        "ext_expires_in": 3599,
+        "token_type": "Bearer"
+    },
+    "scope": [
+        "https://graph.microsoft.com/.default"
+    ],
+    "token_endpoint": "https://login.microsoftonline.com/309806d5-10e6-4203-836f-3d6ae8fecf6a/oauth2/v2.0/token"
+}
+2026-02-19 17:10:32 | DEBUG    | httpcore.connection       | connect_tcp.started host='graph.microsoft.com' port=443 local_address=None timeout=30 socket_options=None
+2026-02-19 17:10:32 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000258BB11AC40>
+2026-02-19 17:10:32 | DEBUG    | httpcore.connection       | start_tls.started ssl_context=<ssl.SSLContext object at 0x00000258BB134290> server_hostname='graph.microsoft.com' timeout=30
+2026-02-19 17:10:32 | DEBUG    | httpcore.connection       | start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000258BB11CEF0>
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 403, b'Forbidden', [(b'Cache-Control', b'private'), (b'Transfer-Encoding', b'chunked'), (b'Content-Type', b'application/json; odata.metadata=minimal; odata.streaming=true; IEEE754Compatible=false; charset=utf-8'), (b'Content-Encoding', b'gzip'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'request-id', b'7684a514-38d7-4e4a-bc8d-dffe7b155371'), (b'client-request-id', b'7684a514-38d7-4e4a-bc8d-dffe7b155371'), (b'x-ms-ags-diagnostic', b'{"ServerInfo":{"DataCenter":"Central India","Slice":"E","Ring":"3","ScaleUnit":"001","RoleInstance":"PN3PEPF000002B5"}}'), (b'Date', b'Thu, 19 Feb 2026 11:40:30 GMT')])
+2026-02-19 17:10:32 | INFO     | httpx                     | HTTP Request: POST https://graph.microsoft.com/v1.0/users/it.ops@babajishivram.com/sendMail "HTTP/1.1 403 Forbidden"
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | response_closed.started
+2026-02-19 17:10:32 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-02-19 17:10:32 | DEBUG    | httpcore.connection       | close.started
+2026-02-19 17:10:32 | DEBUG    | httpcore.connection       | close.complete
+2026-02-19 17:10:32 | ERROR    | email_notifier            | Email send failed: 403 - {"error":{"code":"ErrorAccessDenied","message":"Access is denied. Check credentials and try again."}}
+2026-02-19 17:10:32 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 17:25:32 | INFO     | __main__                  | --- CYCLE 2 at 2026-02-19T17:25:32.573901 ---
+2026-02-19 17:25:32 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:25:32 | INFO     | orchestrator              | CYCLE START
+2026-02-19 17:25:32 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:25:32 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 17:25:32 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T17:10:31.676072)
+2026-02-19 17:25:32 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 17:25:32 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T17%3A10%3A31.676072 HTTP/1.1" 200 None
+2026-02-19 17:25:34 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 17:25:34 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 17:25:34 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:25:34 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 17:25:34 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:25:34 | INFO     | __main__                  | Cycle 2 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 17:25:34 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 17:40:34 | INFO     | __main__                  | --- CYCLE 3 at 2026-02-19T17:40:34.904294 ---
+2026-02-19 17:40:34 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:40:34 | INFO     | orchestrator              | CYCLE START
+2026-02-19 17:40:34 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:40:34 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 17:40:34 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T17:25:34.901779)
+2026-02-19 17:40:34 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 17:40:35 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T17%3A25%3A34.901779 HTTP/1.1" 200 None
+2026-02-19 17:40:35 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 17:40:35 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 17:40:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:40:35 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 17:40:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:40:35 | INFO     | __main__                  | Cycle 3 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 17:40:35 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 17:55:35 | INFO     | __main__                  | --- CYCLE 4 at 2026-02-19T17:55:35.215690 ---
+2026-02-19 17:55:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:55:35 | INFO     | orchestrator              | CYCLE START
+2026-02-19 17:55:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:55:35 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 17:55:35 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T17:40:35.213461)
+2026-02-19 17:55:35 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 17:55:35 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T17%3A40%3A35.213461 HTTP/1.1" 200 None
+2026-02-19 17:55:35 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 17:55:35 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 17:55:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:55:35 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 17:55:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 17:55:35 | INFO     | __main__                  | Cycle 4 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 17:55:35 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 18:10:35 | INFO     | __main__                  | --- CYCLE 5 at 2026-02-19T18:10:35.397438 ---
+2026-02-19 18:10:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:10:35 | INFO     | orchestrator              | CYCLE START
+2026-02-19 18:10:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:10:35 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 18:10:35 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T17:55:35.395130)
+2026-02-19 18:10:35 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 18:10:35 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T17%3A55%3A35.395130 HTTP/1.1" 200 None
+2026-02-19 18:10:35 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 18:10:35 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 18:10:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:10:35 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 18:10:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:10:35 | INFO     | __main__                  | Cycle 5 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 18:10:35 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 18:25:35 | INFO     | __main__                  | --- CYCLE 6 at 2026-02-19T18:25:35.589229 ---
+2026-02-19 18:25:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:25:35 | INFO     | orchestrator              | CYCLE START
+2026-02-19 18:25:35 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:25:35 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 18:25:35 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T18:10:35.586492)
+2026-02-19 18:25:35 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 18:25:36 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A10%3A35.586492 HTTP/1.1" 401 None
+2026-02-19 18:25:36 | WARNING  | erp_client                | ERP returned 401 — token expired, re-authenticating
+2026-02-19 18:25:36 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 18:25:36 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 18:25:36 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 18:25:39 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A10%3A35.586492 HTTP/1.1" 200 None
+2026-02-19 18:25:39 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 18:25:39 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 18:25:39 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:25:39 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 18:25:39 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:25:39 | INFO     | __main__                  | Cycle 6 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 18:25:39 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 18:40:39 | INFO     | __main__                  | --- CYCLE 7 at 2026-02-19T18:40:39.063696 ---
+2026-02-19 18:40:39 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:40:39 | INFO     | orchestrator              | CYCLE START
+2026-02-19 18:40:39 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:40:39 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 18:40:39 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T18:25:39.061060)
+2026-02-19 18:40:58 | DEBUG    | urllib3.util.retry        | Incremented Retry for (url='/api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A25%3A39.061060'): Retry(total=4, connect=None, read=None, redirect=None, status=None)
+2026-02-19 18:40:58 | WARNING  | urllib3.connectionpool    | Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)': /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A25%3A39.061060
+2026-02-19 18:40:58 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (2): 154.84.227.120:440
+2026-02-19 18:40:58 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A25%3A39.061060 HTTP/1.1" 200 None
+2026-02-19 18:40:58 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 18:40:58 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 18:40:58 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:40:58 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 18:40:58 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:40:58 | INFO     | __main__                  | Cycle 7 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 18:40:58 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 18:56:06 | INFO     | __main__                  | --- CYCLE 8 at 2026-02-19T18:56:06.221273 ---
+2026-02-19 18:56:06 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:56:06 | INFO     | orchestrator              | CYCLE START
+2026-02-19 18:56:06 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:56:06 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 18:56:06 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T18:40:58.741803)
+2026-02-19 18:56:06 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 18:56:06 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A40%3A58.741803 HTTP/1.1" 200 None
+2026-02-19 18:56:06 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 18:56:06 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 18:56:06 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:56:06 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 18:56:06 | INFO     | orchestrator              | ============================================================
+2026-02-19 18:56:06 | INFO     | __main__                  | Cycle 8 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 18:56:06 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 19:11:06 | INFO     | __main__                  | --- CYCLE 9 at 2026-02-19T19:11:06.854080 ---
+2026-02-19 19:11:06 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:11:06 | INFO     | orchestrator              | CYCLE START
+2026-02-19 19:11:06 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:11:06 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 19:11:06 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T18:56:06.851766)
+2026-02-19 19:11:06 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 19:11:07 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T18%3A56%3A06.851766 HTTP/1.1" 200 None
+2026-02-19 19:11:07 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 19:11:07 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 19:11:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:11:07 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 19:11:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:11:07 | INFO     | __main__                  | Cycle 9 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 19:11:07 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 19:26:07 | INFO     | __main__                  | --- CYCLE 10 at 2026-02-19T19:26:07.067168 ---
+2026-02-19 19:26:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:26:07 | INFO     | orchestrator              | CYCLE START
+2026-02-19 19:26:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:26:07 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 19:26:07 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T19:11:07.064261)
+2026-02-19 19:26:07 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 19:26:07 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T19%3A11%3A07.064261 HTTP/1.1" 200 None
+2026-02-19 19:26:07 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 19:26:07 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 19:26:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:26:07 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 19:26:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:26:07 | INFO     | __main__                  | Cycle 10 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 19:26:07 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 19:41:07 | INFO     | __main__                  | --- CYCLE 11 at 2026-02-19T19:41:07.299448 ---
+2026-02-19 19:41:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:41:07 | INFO     | orchestrator              | CYCLE START
+2026-02-19 19:41:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:41:07 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 19:41:07 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T19:26:07.296843)
+2026-02-19 19:41:07 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 19:41:07 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T19%3A26%3A07.296843 HTTP/1.1" 401 None
+2026-02-19 19:41:07 | WARNING  | erp_client                | ERP returned 401 — token expired, re-authenticating
+2026-02-19 19:41:07 | INFO     | erp_client                | ERP login: http://154.84.227.120:440/api/Login
+2026-02-19 19:41:07 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-19 19:41:07 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-19 19:41:07 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T19%3A26%3A07.296843 HTTP/1.1" 200 None
+2026-02-19 19:41:07 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 19:41:07 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 19:41:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:41:07 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 19:41:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:41:07 | INFO     | __main__                  | Cycle 11 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 19:41:07 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 19:56:07 | INFO     | __main__                  | --- CYCLE 12 at 2026-02-19T19:56:07.841835 ---
+2026-02-19 19:56:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:56:07 | INFO     | orchestrator              | CYCLE START
+2026-02-19 19:56:07 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:56:07 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 19:56:07 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T19:41:07.838890)
+2026-02-19 19:56:07 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 19:56:08 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T19%3A41%3A07.838890 HTTP/1.1" 200 None
+2026-02-19 19:56:08 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 19:56:08 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 19:56:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:56:08 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 19:56:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 19:56:08 | INFO     | __main__                  | Cycle 12 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 19:56:08 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 20:11:08 | INFO     | __main__                  | --- CYCLE 13 at 2026-02-19T20:11:08.101305 ---
+2026-02-19 20:11:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:11:08 | INFO     | orchestrator              | CYCLE START
+2026-02-19 20:11:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:11:08 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 20:11:08 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T19:56:08.098406)
+2026-02-19 20:11:08 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 20:11:08 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T19%3A56%3A08.098406 HTTP/1.1" 200 None
+2026-02-19 20:11:08 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 20:11:08 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 20:11:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:11:08 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 20:11:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:11:08 | INFO     | __main__                  | Cycle 13 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 20:11:08 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-19 20:26:08 | INFO     | __main__                  | --- CYCLE 14 at 2026-02-19T20:26:08.433919 ---
+2026-02-19 20:26:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:26:08 | INFO     | orchestrator              | CYCLE START
+2026-02-19 20:26:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:26:08 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-19 20:26:08 | INFO     | erp_client                | Fetching documents from ERP: http://154.84.227.120:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-19T20:11:08.430744)
+2026-02-19 20:26:08 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 154.84.227.120
+2026-02-19 20:26:08 | DEBUG    | urllib3.connectionpool    | http://154.84.227.120:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-19T20%3A11%3A08.430744 HTTP/1.1" 200 None
+2026-02-19 20:26:08 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-19 20:26:08 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-19 20:26:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:26:08 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-19 20:26:08 | INFO     | orchestrator              | ============================================================
+2026-02-19 20:26:08 | INFO     | __main__                  | Cycle 14 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-19 20:26:08 | INFO     | __main__                  | Next cycle in 15 minutes...

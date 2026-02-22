@@ -1,0 +1,22 @@
+{
+  "doc_2391549": {
+    "lId": 2391549,
+    "jobId": 649427,
+    "fileName": "BOE1.pdf",
+    "error": "Failed to submit to print queue",
+    "error_type": "unknown",
+    "retry_count": 1,
+    "status": "permanently_failed",
+    "failed_at": "2026-02-19T16:30:00.198856"
+  },
+  "doc_2391553": {
+    "lId": 2391553,
+    "jobId": 660664,
+    "fileName": "BOE5.pdf",
+    "error": "Failed to submit to print queue",
+    "error_type": "unknown",
+    "retry_count": 1,
+    "status": "permanently_failed",
+    "failed_at": "2026-02-19T16:30:03.178694"
+  }
+}

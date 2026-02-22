@@ -1,12 +1,11 @@
 """
 Flatten Orchestrator — Entry Point
 Runs the fetch-submit-poll-save pipeline on a configurable interval.
-Sends a daily email report at the end of each day's first cycle.
 """
 import time
 import logging
 import os
-from datetime import datetime, date
+from datetime import datetime
 from logging.handlers import TimedRotatingFileHandler
 
 from config import config
@@ -66,7 +65,7 @@ def main():
 
     orchestrator = Orchestrator()
     interval_seconds = config.FETCH_INTERVAL_MINUTES * 60
-    last_report_date = None
+
 
     cycle_count = 0
 
@@ -87,12 +86,6 @@ def main():
                 f"retried={summary['retried']}"
             )
 
-            # --- Daily report: send once per day ---
-            today = date.today()
-            if last_report_date != today:
-                logger.info("Sending daily email report...")
-                orchestrator.send_daily_report()
-                last_report_date = today
 
         except KeyboardInterrupt:
             raise
