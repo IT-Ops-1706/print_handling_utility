@@ -1,0 +1,64 @@
+2026-02-24 11:26:53 | INFO     | __main__                  | ============================================================
+2026-02-24 11:26:53 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-24 11:26:53 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-24 11:26:53 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-24 11:26:53 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-24 11:26:53 | INFO     | __main__                  | Batch size: 10
+2026-02-24 11:26:53 | INFO     | __main__                  | Max retries: 3
+2026-02-24 11:26:53 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-02-24 11:26:53 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-24 11:26:53 | INFO     | __main__                  | ============================================================
+2026-02-24 11:26:53 | INFO     | state_manager             | Loaded state: 0 active jobs
+2026-02-24 11:26:53 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-24 11:26:53 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-24T11:26:53.777744 ---
+2026-02-24 11:26:53 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:26:53 | INFO     | orchestrator              | CYCLE START
+2026-02-24 11:26:53 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:26:53 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-24 11:26:53 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-23T17:56:59.923345)
+2026-02-24 11:26:53 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-02-24 11:26:53 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 192.168.6.98:440
+2026-02-24 11:26:56 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-24 11:26:56 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-24 11:26:59 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-23T17%3A56%3A59.923345 HTTP/1.1" 200 None
+2026-02-24 11:26:59 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-24 11:26:59 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-24 11:26:59 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:26:59 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-24 11:26:59 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:26:59 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-24 11:26:59 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-24 11:27:10 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-24 11:27:10 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-02-24 11:56:13 | INFO     | __main__                  | ============================================================
+2026-02-24 11:56:13 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-02-24 11:56:13 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-02-24 11:56:13 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-02-24 11:56:13 | INFO     | __main__                  | Poll timeout: 90 seconds
+2026-02-24 11:56:13 | INFO     | __main__                  | Batch size: 10
+2026-02-24 11:56:13 | INFO     | __main__                  | Max retries: 3
+2026-02-24 11:56:13 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-02-24 11:56:13 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-24 11:56:13 | INFO     | __main__                  | ============================================================
+2026-02-24 11:56:13 | INFO     | state_manager             | Loaded state: 0 active jobs
+2026-02-24 11:56:13 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-02-24 11:56:13 | INFO     | __main__                  | --- CYCLE 1 at 2026-02-24T11:56:13.405202 ---
+2026-02-24 11:56:13 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:56:13 | INFO     | orchestrator              | CYCLE START
+2026-02-24 11:56:13 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:56:13 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-02-24 11:56:13 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-24T11:26:59.964099)
+2026-02-24 11:56:13 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-02-24 11:56:13 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 192.168.6.98:440
+2026-02-24 11:56:13 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-02-24 11:56:13 | INFO     | erp_client                | ERP login successful, token acquired
+2026-02-24 11:56:14 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-24T11%3A26%3A59.964099 HTTP/1.1" 200 None
+2026-02-24 11:56:14 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-02-24 11:56:14 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-02-24 11:56:14 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:56:14 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-24 11:56:14 | INFO     | orchestrator              | ============================================================
+2026-02-24 11:56:14 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-24 11:56:14 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-02-24 11:56:25 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-02-24 11:56:25 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED

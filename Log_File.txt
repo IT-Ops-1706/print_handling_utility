@@ -1,0 +1,299 @@
+ supported type
+2026-02-24 15:4
+process
+2026-02-24 15:4
+===============
+2026-02-24 15:4
+fetched': 0, 's
+2026-02-24 15:4
+===============
+2026-02-24 15:4
+ed=0, completed
+2026-02-24 15:4
+2026-02-24 15:5
+145115 ---
+2026-02-24 15:5
+===============
+2026-02-24 15:5
+2026-02-24 15:5
+===============
+2026-02-24 15:5
+2026-02-24 15:5
+//192.168.6.98:
+41989)
+2026-02-24 15:5
+ supported type
+2026-02-24 15:5
+process
+2026-02-24 15:5
+===============
+2026-02-24 15:5
+fetched': 0, 's
+2026-02-24 15:5
+===============
+2026-02-24 15:5
+ed=0, completed
+2026-02-24 15:5
+2026-02-24 16:1
+268302 ---
+2026-02-24 16:1
+===============
+2026-02-24 16:1
+2026-02-24 16:1
+===============
+2026-02-24 16:1
+2026-02-24 16:1
+//192.168.6.98:
+54309)
+2026-02-24 16:1
+ supported type
+2026-02-24 16:1
+process
+2026-02-24 16:1
+===============
+2026-02-24 16:1
+fetched': 0, 's
+2026-02-24 16:1
+===============
+2026-02-24 16:1
+ed=0, completed
+2026-02-24 16:1
+2026-02-24 16:2
+411410 ---
+2026-02-24 16:2
+===============
+2026-02-24 16:2
+2026-02-24 16:2
+===============
+2026-02-24 16:2
+2026-02-24 16:2
+//192.168.6.98:
+93098)
+2026-02-24 16:2
+ supported type
+2026-02-24 16:2
+process
+2026-02-24 16:2
+===============
+2026-02-24 16:2
+fetched': 0, 's
+2026-02-24 16:2
+===============
+2026-02-24 16:2
+ed=0, completed
+2026-02-24 16:2
+2026-02-24 16:4
+598166 ---
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+2026-02-24 16:4
+//192.168.6.98:
+51827)
+2026-02-24 16:4
+re-authenticati
+2026-02-24 16:4
+/api/Login
+2026-02-24 16:4
+ed
+2026-02-24 16:4
+ supported type
+2026-02-24 16:4
+process
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+fetched': 0, 's
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+ed=0, completed
+2026-02-24 16:4
+2026-02-24 16:4
+2026-02-24 16:4
+
+(venv) C:\Utili
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+2026-02-24 16:4
+2026-02-24 16:4
+2026-02-24 16:4
+2026-02-24 16:4
+2026-02-24 16:4
+2026-02-24 16:4
+at_not_found',
+2026-02-24 16:4
+ 111, 112, 113]
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+2026-02-24 16:4
+pass and retry
+2026-02-24 16:4
+95634 ---
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+2026-02-24 16:4
+===============
+2026-02-24 16:4
+2026-02-24 16:4
+ng initial: 202
+2026-02-24 16:4
+//192.168.6.98:
+00)
+2026-02-24 16:4
+/api/Login
+2026-02-24 16:4
+ed
+2026-02-24 16:4
+ supported type
+2026-02-24 16:4
+process
+2026-02-24 16:4
+) - Sliding win
+2026-02-24 16:4
+J.pdf
+2026-02-24 16:4
+ BOE_IFDHJ.pdf
+ut_2325191_BOE_
+2026-02-24 16:4
+1/print-queue "
+2026-02-24 16:4
+b_id=job_1_60f6
+2026-02-24 16:4
+2026-02-24 16:4
+ OOC.pdf (from
+5192_OOC.pdf)
+2026-02-24 16:4
+1/print-queue "
+2026-02-24 16:4
+b_id=job_2_7e12
+2026-02-24 16:4
+: [WinError 5]
+tility\\States\
+g_utility\\Stat
+Traceback (most
+  File "C:\Util
+main
+    summary = o
+  File "C:\Util
+ 83, in run_cyc
+    batch_resul
+  File "C:\Util
+ 176, in _proce
+    _submit_nex
+  File "C:\Util
+ 165, in _submi
+    self.state.
+  File "C:\Util
+e 185, in updat
+    self._save_
+  File "C:\Util
+e 117, in _save
+    self._write
+  File "C:\Util
+e 106, in _writ
+    os.replace(
+PermissionError
+rint_handling_u
+\\print_handlin
+2026-02-24 16:4
+2026-02-24 16:53:00 | INFO     | __main__ | Shutdown requested. Exiting.
+2026-02-24 16:53:00 | INFO     | __main__ | FLATTEN ORCHESTRATOR STOPPED
+
+(venv) C:\Utilities\PDF_Utilities\print_handling_utility>python main.py
+2026-02-24 16:53:08 | INFO     | __main__ | ============================================================
+2026-02-24 16:53:08 | INFO     | __main__ | FLATTEN ORCHESTRATOR STARTING
+2026-02-24 16:53:08 | INFO     | __main__ | Fetch interval: 15 minutes
+2026-02-24 16:53:08 | INFO     | __main__ | Poll interval: 30 seconds
+2026-02-24 16:53:08 | INFO     | __main__ | Poll timeout: 90 seconds
+2026-02-24 16:53:08 | INFO     | __main__ | Batch size: 10
+2026-02-24 16:53:08 | INFO     | __main__ | Max retries: 3
+2026-02-24 16:53:08 | INFO     | __main__ | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-02-24 16:53:08 | INFO     | __main__ | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-24 16:53:08 | INFO     | __main__ | ============================================================
+2026-02-24 16:53:08 | INFO     | state_manager | Loaded state: 3 active jobs
+2026-02-24 16:53:08 | INFO     | erp_client | ERP session configured with SSL bypass and retry strategy
+2026-02-24 16:53:08 | INFO     | __main__ | --- CYCLE 1 at 2026-02-24T16:53:08.865069 ---
+2026-02-24 16:53:08 | INFO     | orchestrator | ============================================================
+2026-02-24 16:53:08 | INFO     | orchestrator | CYCLE START
+2026-02-24 16:53:08 | INFO     | orchestrator | ============================================================
+2026-02-24 16:53:08 | INFO     | orchestrator | RETRY PHASE: No pending retries
+2026-02-24 16:53:08 | INFO     | orchestrator | No previous timestamp found, using initial: 2026-02-23T13:09:01.300
+2026-02-24 16:53:08 | INFO     | erp_client | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-23T13:09:01.300)
+2026-02-24 16:53:08 | INFO     | erp_client | ERP login: http://192.168.6.98:440/api/Login
+2026-02-24 16:53:08 | INFO     | erp_client | ERP login successful, token acquired
+2026-02-24 16:53:09 | INFO     | erp_client | Fetched 3 total documents, 3 match supported types with fileBase64
+2026-02-24 16:53:09 | INFO     | orchestrator | FETCH PHASE: 0 new documents to process
+2026-02-24 16:53:09 | INFO     | orchestrator | ============================================================
+2026-02-24 16:53:09 | INFO     | orchestrator | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-02-24 16:53:09 | INFO     | orchestrator | ============================================================
+2026-02-24 16:53:09 | INFO     | __main__ | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-02-24 16:53:09 | INFO     | __main__ | Next cycle in 15 minutes...
+2026-02-24 16:54:19 | INFO     | __main__ | Shutdown requested. Exiting.
+2026-02-24 16:54:19 | INFO     | __main__ | FLATTEN ORCHESTRATOR STOPPED
+
+(venv) C:\Utilities\PDF_Utilities\print_handling_utility>python main.py
+2026-02-24 16:55:05 | INFO     | __main__ | ============================================================
+2026-02-24 16:55:05 | INFO     | __main__ | FLATTEN ORCHESTRATOR STARTING
+2026-02-24 16:55:05 | INFO     | __main__ | Fetch interval: 15 minutes
+2026-02-24 16:55:05 | INFO     | __main__ | Poll interval: 30 seconds
+2026-02-24 16:55:05 | INFO     | __main__ | Poll timeout: 90 seconds
+2026-02-24 16:55:05 | INFO     | __main__ | Batch size: 10
+2026-02-24 16:55:05 | INFO     | __main__ | Max retries: 3
+2026-02-24 16:55:05 | INFO     | __main__ | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-02-24 16:55:05 | INFO     | __main__ | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-02-24 16:55:05 | INFO     | __main__ | ============================================================
+2026-02-24 16:55:05 | INFO     | state_manager | Loaded state: 0 active jobs
+2026-02-24 16:55:05 | INFO     | erp_client | ERP session configured with SSL bypass and retry strategy
+2026-02-24 16:55:05 | INFO     | __main__ | --- CYCLE 1 at 2026-02-24T16:55:05.907970 ---
+2026-02-24 16:55:05 | INFO     | orchestrator | ============================================================
+2026-02-24 16:55:05 | INFO     | orchestrator | CYCLE START
+2026-02-24 16:55:05 | INFO     | orchestrator | ============================================================
+2026-02-24 16:55:05 | INFO     | orchestrator | RETRY PHASE: No pending retries
+2026-02-24 16:55:05 | INFO     | orchestrator | No previous timestamp found, using initial: 2026-02-23T13:09:01.300
+2026-02-24 16:55:05 | INFO     | erp_client | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-23T13:09:01.300)
+2026-02-24 16:55:05 | INFO     | erp_client | ERP login: http://192.168.6.98:440/api/Login
+2026-02-24 16:55:05 | INFO     | erp_client | ERP login successful, token acquired
+2026-02-24 16:55:06 | INFO     | erp_client | Fetched 3 total documents, 3 match supported types with fileBase64
+2026-02-24 16:55:06 | INFO     | orchestrator | FETCH PHASE: 3 new documents to process
+2026-02-24 16:55:06 | INFO     | orchestrator | PROCESS PHASE: Batch 1/1 (3 jobs) - Sliding window (depth 2)
+2026-02-24 16:55:06 | INFO     | orchestrator | Submitting lId=2325191: BOE_IFDHJ.pdf
+2026-02-24 16:55:06 | INFO     | print_queue_client | Submitting to Print Queue: BOE_IFDHJ.pdf (from C:\Utilities\PDF_Utilities\print_handling_utility\cache\input_2325191_BOE_IFDHJ.pdf)
+2026-02-24 16:55:06 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-24 16:55:06 | INFO     | print_queue_client | Submitted successfully: job_id=job_3_21a99479
+2026-02-24 16:55:06 | INFO     | orchestrator | Submitting lId=2325192: OOC.pdf
+2026-02-24 16:55:06 | INFO     | print_queue_client | Submitting to Print Queue: OOC.pdf (from C:\Utilities\PDF_Utilities\print_handling_utility\cache\input_2325192_OOC.pdf)
+2026-02-24 16:55:06 | INFO     | httpx | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-02-24 16:55:06 | INFO     | print_queue_client | Submitted successfully: job_id=job_4_81db132b
+2026-02-24 16:55:06 | INFO     | orchestrator | Polling job job_3_21a99479 for lId=2325191
+2026-02-24 16:55:06 | INFO     | print_queue_client | Polling job job_3_21a99479 every 30s (timeout: 90s)...
+2026-02-24 16:55:06 | INFO     | httpx | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_21a99479 "HTTP/1.1 200 OK"
+2026-02-24 16:55:36 | INFO     | httpx | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_21a99479 "HTTP/1.1 200 OK"
+2026-02-24 16:56:06 | INFO     | httpx | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_21a99479 "HTTP/1.1 200 OK"
+2026-02-24 16:56:06 | INFO     | print_queue_client | Job job_3_21a99479 completed in 60s
+2026-02-24 16:56:06 | INFO     | erp_client | Saving flattened doc payload: {'lId': 2325191, 'jobId': 649985, 'docPath': 'OILA_FgPl\\CB16011MBOI2425\\', 'fileName': 'BOE_IFDHJ_flatten.pdf', 'docType': 126, 'flattenQueueId': 'job_3_21a99479', 'flattenStatusId': 2, 'fileBase64': '<base64 string (95256 chars)>'}
+2026-02-24 16:56:06 | INFO     | erp_client | ERP save successful for lId=2325191
+2026-02-24 16:56:06 | ERROR    | __main__ | Cycle 1 failed with unexpected error: [WinError 5] Access is denied: 'C:\\Utilities\\PDF_Utilities\\print_handling_utility\\States\\tmpdife8jqn.tmp' -> 'C:\\Utilities\\PDF_Utilities\\print_handling_utility\\States\\active_jobs.json'
+Traceback (most recent call last):
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\main.py", line 78, in main
+    summary = orchestrator.run_cycle()
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\orchestrator.py", line 83, in run_cycle
+    batch_results = self._process_jobs_sliding_window(batch)
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\orchestrator.py", line 189, in _process_jobs_sliding_window
+    outcome = self._save_to_erp(job, poll_result)
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\orchestrator.py", line 326, in _save_to_erp
+    self.state.move_to_completed(job.lId)
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\state_manager.py", line 214, in move_to_completed
+    self._save_active()
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\state_manager.py", line 117, in _save_active
+    self._write_json_atomic(self._active_file, data)
+  File "C:\Utilities\PDF_Utilities\print_handling_utility\state_manager.py", line 106, in _write_json_atomic
+    os.replace(tmp_path, path)
+PermissionError: [WinError 5] Access is denied: 'C:\\Utilities\\PDF_Utilities\\print_handling_utility\\States\\tmpdife8jqn.tmp' -> 'C:\\Utilities\\PDF_Utilities\\print_handling_utility\\States\\active_jobs.json'
+2026-02-24 16:56:06 | INFO     | __main__ | Next cycle in 15 minutes...

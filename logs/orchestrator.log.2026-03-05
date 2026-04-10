@@ -1,0 +1,1148 @@
+2026-03-05 12:14:23 | INFO     | __main__                  | ============================================================
+2026-03-05 12:14:23 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-03-05 12:14:23 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-03-05 12:14:23 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-03-05 12:14:23 | INFO     | __main__                  | Poll timeout: 120 seconds
+2026-03-05 12:14:23 | INFO     | __main__                  | Batch size: 10
+2026-03-05 12:14:23 | INFO     | __main__                  | Max retries: 3
+2026-03-05 12:14:23 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-03-05 12:14:23 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-03-05 12:14:23 | INFO     | __main__                  | ============================================================
+2026-03-05 12:14:23 | INFO     | state_manager             | Loaded state: 0 active jobs
+2026-03-05 12:14:23 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-03-05 12:14:23 | INFO     | __main__                  | --- CYCLE 1 at 2026-03-05T12:14:23.768625 ---
+2026-03-05 12:14:23 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:14:23 | INFO     | orchestrator              | CYCLE START
+2026-03-05 12:14:23 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:14:23 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 12:14:23 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-26T11:48:22.308177)
+2026-03-05 12:14:23 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 12:14:23 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 192.168.6.98:440
+2026-03-05 12:14:29 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 12:14:29 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 12:14:37 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-26T11%3A48%3A22.308177 HTTP/1.1" 200 None
+2026-03-05 12:14:37 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 12:14:37 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 12:14:37 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:14:37 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 12:14:37 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:14:37 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 12:14:37 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 12:14:53 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-03-05 12:14:53 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-03-05 12:49:39 | INFO     | __main__                  | ============================================================
+2026-03-05 12:49:39 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-03-05 12:49:39 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-03-05 12:49:39 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-03-05 12:49:39 | INFO     | __main__                  | Poll timeout: 120 seconds
+2026-03-05 12:49:39 | INFO     | __main__                  | Batch size: 10
+2026-03-05 12:49:39 | INFO     | __main__                  | Max retries: 3
+2026-03-05 12:49:39 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-03-05 12:49:39 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-03-05 12:49:39 | INFO     | __main__                  | ============================================================
+2026-03-05 12:49:39 | INFO     | state_manager             | Loaded state: 0 active jobs
+2026-03-05 12:49:39 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-03-05 12:49:39 | INFO     | __main__                  | --- CYCLE 1 at 2026-03-05T12:49:39.536943 ---
+2026-03-05 12:49:39 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:49:39 | INFO     | orchestrator              | CYCLE START
+2026-03-05 12:49:39 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:49:39 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 12:49:39 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T12:14:37.165691)
+2026-03-05 12:49:39 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 12:49:39 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 192.168.6.98:440
+2026-03-05 12:49:39 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 12:49:39 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 12:49:39 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T12%3A14%3A37.165691 HTTP/1.1" 200 None
+2026-03-05 12:49:39 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 12:49:39 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 12:49:39 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:49:39 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 12:49:39 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:49:39 | INFO     | __main__                  | Cycle 1 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 12:49:39 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 12:49:48 | INFO     | __main__                  | Shutdown requested. Exiting.
+2026-03-05 12:49:48 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STOPPED
+2026-03-05 12:50:07 | INFO     | __main__                  | ============================================================
+2026-03-05 12:50:07 | INFO     | __main__                  | FLATTEN ORCHESTRATOR STARTING
+2026-03-05 12:50:07 | INFO     | __main__                  | Fetch interval: 15 minutes
+2026-03-05 12:50:07 | INFO     | __main__                  | Poll interval: 30 seconds
+2026-03-05 12:50:07 | INFO     | __main__                  | Poll timeout: 120 seconds
+2026-03-05 12:50:07 | INFO     | __main__                  | Batch size: 10
+2026-03-05 12:50:07 | INFO     | __main__                  | Max retries: 3
+2026-03-05 12:50:07 | INFO     | __main__                  | Retryable errors: ['timeout', 'acrobat_not_found', 'file_locked', 'print_queue_unavailable']
+2026-03-05 12:50:07 | INFO     | __main__                  | Supported doc types: [104, 109, 110, 111, 112, 113]
+2026-03-05 12:50:07 | INFO     | __main__                  | ============================================================
+2026-03-05 12:50:07 | INFO     | state_manager             | Loaded state: 0 active jobs
+2026-03-05 12:50:07 | INFO     | erp_client                | ERP session configured with SSL bypass and retry strategy
+2026-03-05 12:50:07 | INFO     | __main__                  | --- CYCLE 1 at 2026-03-05T12:50:07.907488 ---
+2026-03-05 12:50:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:50:07 | INFO     | orchestrator              | CYCLE START
+2026-03-05 12:50:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 12:50:07 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 12:50:07 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-02-24T12:49:39.847530)
+2026-03-05 12:50:07 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 12:50:07 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (1): 192.168.6.98:440
+2026-03-05 12:50:08 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 12:50:08 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 12:50:09 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-02-24T12%3A49%3A39.847530 HTTP/1.1" 200 None
+2026-03-05 12:50:09 | INFO     | erp_client                | Fetched 9 total documents, 9 match supported types with fileBase64
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391600_13783oc_VIZUYOOC.pdf (369231 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2391600 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391601_13783gpeGatepass.pdf (565564 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2391601 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391602_13783oc_BOE.pdf (369231 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2391602 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391609_13783gpeGatepass_AUUIG.pdf (565564 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2391609 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391611_13783oc_VIZUYOOC.pdf (369231 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2391611 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391614_13783oc_BOE.pdf (369231 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2391614 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325191_BOE_IFDHJ.pdf (338391 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2325191 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325192_OOC.pdf (340544 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2325192 status=fetched
+2026-03-05 12:50:09 | DEBUG    | orchestrator              | Cached input file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325193_GP.pdf (581843 bytes)
+2026-03-05 12:50:09 | DEBUG    | state_manager             | Added active job: doc_2325193 status=fetched
+2026-03-05 12:50:09 | INFO     | orchestrator              | FETCH PHASE: 9 new documents to process
+2026-03-05 12:50:09 | INFO     | orchestrator              | PROCESS PHASE: Batch 1/1 (9 jobs) — Sliding window (depth 2)
+2026-03-05 12:50:09 | INFO     | orchestrator              | Submitting lId=2391600: 13783oc_VIZUYOOC.pdf
+2026-03-05 12:50:09 | INFO     | print_queue_client        | Submitting to Print Queue: 13783oc_VIZUYOOC.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391600_13783oc_VIZUYOOC.pdf)
+2026-03-05 12:50:10 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:50:10 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADCAABA0>
+2026-03-05 12:50:10 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:50:10 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:50:10 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:50:10 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:50:10 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:20:10 GMT'), (b'server', b'uvicorn'), (b'content-length', b'121'), (b'content-type', b'application/json')])
+2026-03-05 12:50:11 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:50:11 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:50:11 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:50:11 | INFO     | print_queue_client        | Submitted successfully: job_id=job_1_50aac580
+2026-03-05 12:50:11 | INFO     | orchestrator              | Submitting lId=2391601: 13783gpeGatepass.pdf
+2026-03-05 12:50:11 | INFO     | print_queue_client        | Submitting to Print Queue: 13783gpeGatepass.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391601_13783gpeGatepass.pdf)
+2026-03-05 12:50:11 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:50:11 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDF0A50>
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:50:11 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:20:10 GMT'), (b'server', b'uvicorn'), (b'content-length', b'121'), (b'content-type', b'application/json')])
+2026-03-05 12:50:12 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:50:12 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:50:12 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:50:12 | INFO     | print_queue_client        | Submitted successfully: job_id=job_2_0c5f1624
+2026-03-05 12:50:12 | INFO     | orchestrator              | Polling job job_1_50aac580 for lId=2391600
+2026-03-05 12:50:12 | INFO     | print_queue_client        | Polling job job_1_50aac580 every 30s (timeout: 120s)...
+2026-03-05 12:50:12 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:50:12 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDF20D0>
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:50:12 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:50:16 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:20:10 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:50:16 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_50aac580 "HTTP/1.1 200 OK"
+2026-03-05 12:50:16 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:50:16 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:50:16 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:50:16 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:50:16 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:50:16 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:50:16 | DEBUG    | print_queue_client        | Job job_1_50aac580 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:50:47 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:50:47 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE00180>
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:20:46 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:50:47 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_50aac580 "HTTP/1.1 200 OK"
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:50:47 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:50:47 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:50:47 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:50:47 | DEBUG    | print_queue_client        | Job job_1_50aac580 status: processing. Elapsed: 34s. Waiting 30s...
+2026-03-05 12:51:18 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:51:18 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE01810>
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:21:18 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:51:18 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_50aac580 "HTTP/1.1 200 OK"
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:51:18 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:51:18 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:51:18 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:51:18 | DEBUG    | print_queue_client        | Job job_1_50aac580 status: processing. Elapsed: 65s. Waiting 30s...
+2026-03-05 12:51:49 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:51:49 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDFCEF0>
+2026-03-05 12:51:49 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:51:49 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:51:49 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:51:49 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:51:49 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:51:50 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:21:49 GMT'), (b'server', b'uvicorn'), (b'content-length', b'131192'), (b'content-type', b'application/json')])
+2026-03-05 12:51:50 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_1_50aac580 "HTTP/1.1 200 OK"
+2026-03-05 12:51:50 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:51:50 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:51:50 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:51:50 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:51:50 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:51:50 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:51:50 | INFO     | print_queue_client        | Job job_1_50aac580 completed in 97s
+2026-03-05 12:51:50 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391600_13783oc_VIZUYOOC_flatten.pdf (97939 bytes)
+2026-03-05 12:51:50 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391600, 'jobId': 654513, 'docPath': 'WEAT_yCmP\\CB12695MBAI2425\\', 'fileName': '13783oc_VIZUYOOC_flatten.pdf', 'docType': 127, 'flattenQueueId': 'job_1_50aac580', 'flattenStatusId': 2, 'fileBase64': '<base64 string (130588 chars)>'}
+2026-03-05 12:51:50 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:51:50 | INFO     | erp_client                | ERP save successful for lId=2391600
+2026-03-05 12:51:50 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391600_13783oc_VIZUYOOC.pdf
+2026-03-05 12:51:50 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391600_13783oc_VIZUYOOC_flatten.pdf
+2026-03-05 12:51:50 | INFO     | state_manager             | Moved doc_2391600 to completed (Mar_2026/05_03)
+2026-03-05 12:51:50 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391600
+2026-03-05 12:51:50 | INFO     | orchestrator              | Submitting lId=2391602: 13783oc_BOE.pdf
+2026-03-05 12:51:50 | INFO     | print_queue_client        | Submitting to Print Queue: 13783oc_BOE.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391602_13783oc_BOE.pdf)
+2026-03-05 12:51:52 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:51:52 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE0CE20>
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:21:51 GMT'), (b'server', b'uvicorn'), (b'content-length', b'116'), (b'content-type', b'application/json')])
+2026-03-05 12:51:52 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:51:52 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:51:52 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:51:52 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:51:52 | INFO     | print_queue_client        | Submitted successfully: job_id=job_3_d01ed4b3
+2026-03-05 12:51:52 | INFO     | orchestrator              | Polling job job_2_0c5f1624 for lId=2391601
+2026-03-05 12:51:52 | INFO     | print_queue_client        | Polling job job_2_0c5f1624 every 30s (timeout: 120s)...
+2026-03-05 12:51:53 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:51:53 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE0E250>
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:21:53 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:51:53 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_0c5f1624 "HTTP/1.1 200 OK"
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:51:53 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:51:53 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:51:53 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:51:53 | DEBUG    | print_queue_client        | Job job_2_0c5f1624 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:52:25 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:52:25 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDC3950>
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:22:25 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:52:25 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_0c5f1624 "HTTP/1.1 200 OK"
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:52:25 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:52:25 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:52:25 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:52:25 | DEBUG    | print_queue_client        | Job job_2_0c5f1624 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:52:56 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:52:56 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE14D50>
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:22:56 GMT'), (b'server', b'uvicorn'), (b'content-length', b'123256'), (b'content-type', b'application/json')])
+2026-03-05 12:52:56 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_2_0c5f1624 "HTTP/1.1 200 OK"
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:52:56 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:52:56 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:52:56 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:52:56 | INFO     | print_queue_client        | Job job_2_0c5f1624 completed in 63s
+2026-03-05 12:52:56 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391601_13783gpeGatepass_flatten.pdf (91987 bytes)
+2026-03-05 12:52:56 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391601, 'jobId': 654513, 'docPath': 'WEAT_yCmP\\CB12695MBAI2425\\', 'fileName': '13783gpeGatepass_flatten.pdf', 'docType': 128, 'flattenQueueId': 'job_2_0c5f1624', 'flattenStatusId': 2, 'fileBase64': '<base64 string (122652 chars)>'}
+2026-03-05 12:52:56 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:52:56 | INFO     | erp_client                | ERP save successful for lId=2391601
+2026-03-05 12:52:56 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391601_13783gpeGatepass.pdf
+2026-03-05 12:52:56 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391601_13783gpeGatepass_flatten.pdf
+2026-03-05 12:52:56 | INFO     | state_manager             | Moved doc_2391601 to completed (Mar_2026/05_03)
+2026-03-05 12:52:56 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391601
+2026-03-05 12:52:56 | INFO     | orchestrator              | Submitting lId=2391609: 13783gpeGatepass_AUUIG.pdf
+2026-03-05 12:52:56 | INFO     | print_queue_client        | Submitting to Print Queue: 13783gpeGatepass_AUUIG.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391609_13783gpeGatepass_AUUIG.pdf)
+2026-03-05 12:52:58 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:52:58 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE20500>
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:22:56 GMT'), (b'server', b'uvicorn'), (b'content-length', b'127'), (b'content-type', b'application/json')])
+2026-03-05 12:52:58 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:52:58 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:52:58 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:52:58 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:52:58 | INFO     | print_queue_client        | Submitted successfully: job_id=job_4_cb094260
+2026-03-05 12:52:58 | INFO     | orchestrator              | Polling job job_3_d01ed4b3 for lId=2391602
+2026-03-05 12:52:58 | INFO     | print_queue_client        | Polling job job_3_d01ed4b3 every 30s (timeout: 120s)...
+2026-03-05 12:52:59 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:52:59 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE217C0>
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:22:58 GMT'), (b'server', b'uvicorn'), (b'content-length', b'390'), (b'content-type', b'application/json')])
+2026-03-05 12:52:59 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_d01ed4b3 "HTTP/1.1 200 OK"
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:52:59 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:52:59 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:52:59 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:52:59 | DEBUG    | print_queue_client        | Job job_3_d01ed4b3 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:53:30 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:53:30 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE28130>
+2026-03-05 12:53:30 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:53:30 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:53:30 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:53:30 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:53:30 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:53:31 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:23:29 GMT'), (b'server', b'uvicorn'), (b'content-length', b'390'), (b'content-type', b'application/json')])
+2026-03-05 12:53:31 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_d01ed4b3 "HTTP/1.1 200 OK"
+2026-03-05 12:53:31 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:53:31 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:53:31 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:53:31 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:53:31 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:53:31 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:53:31 | DEBUG    | print_queue_client        | Job job_3_d01ed4b3 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:54:02 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:54:02 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE292B0>
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:24:02 GMT'), (b'server', b'uvicorn'), (b'content-length', b'131168'), (b'content-type', b'application/json')])
+2026-03-05 12:54:02 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_3_d01ed4b3 "HTTP/1.1 200 OK"
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:54:02 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:54:02 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:54:02 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:54:02 | INFO     | print_queue_client        | Job job_3_d01ed4b3 completed in 63s
+2026-03-05 12:54:02 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391602_13783oc_BOE_flatten.pdf (97938 bytes)
+2026-03-05 12:54:02 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391602, 'jobId': 654513, 'docPath': 'WEAT_yCmP\\CB12695MBAI2425\\', 'fileName': '13783oc_BOE_flatten.pdf', 'docType': 126, 'flattenQueueId': 'job_3_d01ed4b3', 'flattenStatusId': 2, 'fileBase64': '<base64 string (130584 chars)>'}
+2026-03-05 12:54:02 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:54:02 | INFO     | erp_client                | ERP save successful for lId=2391602
+2026-03-05 12:54:02 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391602_13783oc_BOE.pdf
+2026-03-05 12:54:02 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391602_13783oc_BOE_flatten.pdf
+2026-03-05 12:54:02 | INFO     | state_manager             | Moved doc_2391602 to completed (Mar_2026/05_03)
+2026-03-05 12:54:02 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391602
+2026-03-05 12:54:02 | INFO     | orchestrator              | Submitting lId=2391611: 13783oc_VIZUYOOC.pdf
+2026-03-05 12:54:02 | INFO     | print_queue_client        | Submitting to Print Queue: 13783oc_VIZUYOOC.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391611_13783oc_VIZUYOOC.pdf)
+2026-03-05 12:54:04 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:54:04 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE342C0>
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:24:03 GMT'), (b'server', b'uvicorn'), (b'content-length', b'121'), (b'content-type', b'application/json')])
+2026-03-05 12:54:04 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:54:04 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:54:04 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:54:04 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:54:04 | INFO     | print_queue_client        | Submitted successfully: job_id=job_5_50cb01c8
+2026-03-05 12:54:04 | INFO     | orchestrator              | Polling job job_4_cb094260 for lId=2391609
+2026-03-05 12:54:04 | INFO     | print_queue_client        | Polling job job_4_cb094260 every 30s (timeout: 120s)...
+2026-03-05 12:54:05 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:54:05 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADD8FDD0>
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:24:04 GMT'), (b'server', b'uvicorn'), (b'content-length', b'412'), (b'content-type', b'application/json')])
+2026-03-05 12:54:05 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_4_cb094260 "HTTP/1.1 200 OK"
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:54:05 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:54:05 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:54:05 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:54:05 | DEBUG    | print_queue_client        | Job job_4_cb094260 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:54:36 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:54:36 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE3CAD0>
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:24:36 GMT'), (b'server', b'uvicorn'), (b'content-length', b'412'), (b'content-type', b'application/json')])
+2026-03-05 12:54:36 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_4_cb094260 "HTTP/1.1 200 OK"
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:54:36 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:54:36 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:54:36 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:54:36 | DEBUG    | print_queue_client        | Job job_4_cb094260 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:55:08 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:55:08 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE1EAF0>
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:25:08 GMT'), (b'server', b'uvicorn'), (b'content-length', b'123280'), (b'content-type', b'application/json')])
+2026-03-05 12:55:08 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_4_cb094260 "HTTP/1.1 200 OK"
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:55:08 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:55:08 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:55:08 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:55:08 | INFO     | print_queue_client        | Job job_4_cb094260 completed in 62s
+2026-03-05 12:55:08 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391609_13783gpeGatepass_AUUIG_flatten.pdf (91987 bytes)
+2026-03-05 12:55:08 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391609, 'jobId': 645912, 'docPath': 'WEAT_yCmP\\CB10428MBAI2425\\', 'fileName': '13783gpeGatepass_AUUIG_flatten.pdf', 'docType': 128, 'flattenQueueId': 'job_4_cb094260', 'flattenStatusId': 2, 'fileBase64': '<base64 string (122652 chars)>'}
+2026-03-05 12:55:08 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:55:08 | INFO     | erp_client                | ERP save successful for lId=2391609
+2026-03-05 12:55:08 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391609_13783gpeGatepass_AUUIG.pdf
+2026-03-05 12:55:08 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391609_13783gpeGatepass_AUUIG_flatten.pdf
+2026-03-05 12:55:08 | INFO     | state_manager             | Moved doc_2391609 to completed (Mar_2026/05_03)
+2026-03-05 12:55:08 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391609
+2026-03-05 12:55:08 | INFO     | orchestrator              | Submitting lId=2391614: 13783oc_BOE.pdf
+2026-03-05 12:55:08 | INFO     | print_queue_client        | Submitting to Print Queue: 13783oc_BOE.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391614_13783oc_BOE.pdf)
+2026-03-05 12:55:09 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:55:09 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE44520>
+2026-03-05 12:55:09 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:55:09 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:55:09 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:55:09 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:55:09 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:55:10 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:25:09 GMT'), (b'server', b'uvicorn'), (b'content-length', b'116'), (b'content-type', b'application/json')])
+2026-03-05 12:55:10 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:55:10 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:55:10 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:55:10 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:55:10 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:55:10 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:55:10 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:55:10 | INFO     | print_queue_client        | Submitted successfully: job_id=job_6_5b2f83a1
+2026-03-05 12:55:10 | INFO     | orchestrator              | Polling job job_5_50cb01c8 for lId=2391611
+2026-03-05 12:55:10 | INFO     | print_queue_client        | Polling job job_5_50cb01c8 every 30s (timeout: 120s)...
+2026-03-05 12:55:11 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:55:11 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDEB570>
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:25:10 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:55:11 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_5_50cb01c8 "HTTP/1.1 200 OK"
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:55:11 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:55:11 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:55:11 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:55:11 | DEBUG    | print_queue_client        | Job job_5_50cb01c8 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:55:42 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:55:42 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDEBF70>
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:25:40 GMT'), (b'server', b'uvicorn'), (b'content-length', b'400'), (b'content-type', b'application/json')])
+2026-03-05 12:55:42 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_5_50cb01c8 "HTTP/1.1 200 OK"
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:55:42 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:55:42 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:55:42 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:55:42 | DEBUG    | print_queue_client        | Job job_5_50cb01c8 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:56:13 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:56:13 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADD6E2A0>
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:26:12 GMT'), (b'server', b'uvicorn'), (b'content-length', b'131196'), (b'content-type', b'application/json')])
+2026-03-05 12:56:13 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_5_50cb01c8 "HTTP/1.1 200 OK"
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:56:13 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:56:13 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:56:13 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:56:13 | INFO     | print_queue_client        | Job job_5_50cb01c8 completed in 62s
+2026-03-05 12:56:13 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391611_13783oc_VIZUYOOC_flatten.pdf (97944 bytes)
+2026-03-05 12:56:13 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391611, 'jobId': 645912, 'docPath': 'WEAT_yCmP\\CB10428MBAI2425\\', 'fileName': '13783oc_VIZUYOOC_flatten.pdf', 'docType': 127, 'flattenQueueId': 'job_5_50cb01c8', 'flattenStatusId': 2, 'fileBase64': '<base64 string (130592 chars)>'}
+2026-03-05 12:56:13 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:56:13 | INFO     | erp_client                | ERP save successful for lId=2391611
+2026-03-05 12:56:13 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391611_13783oc_VIZUYOOC.pdf
+2026-03-05 12:56:13 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391611_13783oc_VIZUYOOC_flatten.pdf
+2026-03-05 12:56:13 | INFO     | state_manager             | Moved doc_2391611 to completed (Mar_2026/05_03)
+2026-03-05 12:56:13 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391611
+2026-03-05 12:56:13 | INFO     | orchestrator              | Submitting lId=2325191: BOE_IFDHJ.pdf
+2026-03-05 12:56:13 | INFO     | print_queue_client        | Submitting to Print Queue: BOE_IFDHJ.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325191_BOE_IFDHJ.pdf)
+2026-03-05 12:56:14 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:56:14 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE25F50>
+2026-03-05 12:56:14 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:56:14 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:56:14 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:26:14 GMT'), (b'server', b'uvicorn'), (b'content-length', b'114'), (b'content-type', b'application/json')])
+2026-03-05 12:56:15 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:56:15 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:56:15 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:56:15 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:56:15 | INFO     | print_queue_client        | Submitted successfully: job_id=job_7_d12bc341
+2026-03-05 12:56:15 | INFO     | orchestrator              | Polling job job_6_5b2f83a1 for lId=2391614
+2026-03-05 12:56:15 | INFO     | print_queue_client        | Polling job job_6_5b2f83a1 every 30s (timeout: 120s)...
+2026-03-05 12:56:16 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:56:16 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE268D0>
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:26:16 GMT'), (b'server', b'uvicorn'), (b'content-length', b'390'), (b'content-type', b'application/json')])
+2026-03-05 12:56:16 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_6_5b2f83a1 "HTTP/1.1 200 OK"
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:56:16 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:56:16 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:56:16 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:56:16 | DEBUG    | print_queue_client        | Job job_6_5b2f83a1 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:56:47 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:56:47 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADD87620>
+2026-03-05 12:56:47 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:56:47 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:56:47 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:56:47 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:56:47 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:56:48 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:26:45 GMT'), (b'server', b'uvicorn'), (b'content-length', b'390'), (b'content-type', b'application/json')])
+2026-03-05 12:56:48 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_6_5b2f83a1 "HTTP/1.1 200 OK"
+2026-03-05 12:56:48 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:56:48 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:56:48 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:56:48 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:56:48 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:56:48 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:56:48 | DEBUG    | print_queue_client        | Job job_6_5b2f83a1 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:57:19 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:57:19 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADD87CB0>
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:27:19 GMT'), (b'server', b'uvicorn'), (b'content-length', b'131172'), (b'content-type', b'application/json')])
+2026-03-05 12:57:19 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_6_5b2f83a1 "HTTP/1.1 200 OK"
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:57:19 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:57:19 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:57:19 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:57:19 | INFO     | print_queue_client        | Job job_6_5b2f83a1 completed in 63s
+2026-03-05 12:57:19 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391614_13783oc_BOE_flatten.pdf (97940 bytes)
+2026-03-05 12:57:19 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2391614, 'jobId': 645912, 'docPath': 'WEAT_yCmP\\CB10428MBAI2425\\', 'fileName': '13783oc_BOE_flatten.pdf', 'docType': 126, 'flattenQueueId': 'job_6_5b2f83a1', 'flattenStatusId': 2, 'fileBase64': '<base64 string (130588 chars)>'}
+2026-03-05 12:57:19 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:57:19 | INFO     | erp_client                | ERP save successful for lId=2391614
+2026-03-05 12:57:19 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2391614_13783oc_BOE.pdf
+2026-03-05 12:57:19 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2391614_13783oc_BOE_flatten.pdf
+2026-03-05 12:57:19 | INFO     | state_manager             | Moved doc_2391614 to completed (Mar_2026/05_03)
+2026-03-05 12:57:19 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2391614
+2026-03-05 12:57:19 | INFO     | orchestrator              | Submitting lId=2325192: OOC.pdf
+2026-03-05 12:57:19 | INFO     | print_queue_client        | Submitting to Print Queue: OOC.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325192_OOC.pdf)
+2026-03-05 12:57:21 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:57:21 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDEE270>
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:27:20 GMT'), (b'server', b'uvicorn'), (b'content-length', b'108'), (b'content-type', b'application/json')])
+2026-03-05 12:57:21 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:57:21 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:57:21 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:57:21 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:57:21 | INFO     | print_queue_client        | Submitted successfully: job_id=job_8_da70ee4a
+2026-03-05 12:57:21 | INFO     | orchestrator              | Polling job job_7_d12bc341 for lId=2325191
+2026-03-05 12:57:21 | INFO     | print_queue_client        | Polling job job_7_d12bc341 every 30s (timeout: 120s)...
+2026-03-05 12:57:22 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:57:22 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADDEE870>
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:27:22 GMT'), (b'server', b'uvicorn'), (b'content-length', b'386'), (b'content-type', b'application/json')])
+2026-03-05 12:57:22 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_7_d12bc341 "HTTP/1.1 200 OK"
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:57:22 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:57:22 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:57:22 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:57:22 | DEBUG    | print_queue_client        | Job job_7_d12bc341 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:57:53 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:57:53 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE598B0>
+2026-03-05 12:57:53 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:57:53 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:27:53 GMT'), (b'server', b'uvicorn'), (b'content-length', b'386'), (b'content-type', b'application/json')])
+2026-03-05 12:57:54 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_7_d12bc341 "HTTP/1.1 200 OK"
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:57:54 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:57:54 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:57:54 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:57:54 | DEBUG    | print_queue_client        | Job job_7_d12bc341 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:58:25 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:58:25 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE59FE0>
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:28:24 GMT'), (b'server', b'uvicorn'), (b'content-length', b'95836'), (b'content-type', b'application/json')])
+2026-03-05 12:58:25 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_7_d12bc341 "HTTP/1.1 200 OK"
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:58:25 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:58:25 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:58:25 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:58:25 | INFO     | print_queue_client        | Job job_7_d12bc341 completed in 63s
+2026-03-05 12:58:25 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2325191_BOE_IFDHJ_flatten.pdf (71443 bytes)
+2026-03-05 12:58:25 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2325191, 'jobId': 649985, 'docPath': 'OILA_FgPl\\CB16011MBOI2425\\', 'fileName': 'BOE_IFDHJ_flatten.pdf', 'docType': 126, 'flattenQueueId': 'job_7_d12bc341', 'flattenStatusId': 2, 'fileBase64': '<base64 string (95260 chars)>'}
+2026-03-05 12:58:25 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:58:25 | INFO     | erp_client                | ERP save successful for lId=2325191
+2026-03-05 12:58:25 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325191_BOE_IFDHJ.pdf
+2026-03-05 12:58:25 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2325191_BOE_IFDHJ_flatten.pdf
+2026-03-05 12:58:25 | INFO     | state_manager             | Moved doc_2325191 to completed (Mar_2026/05_03)
+2026-03-05 12:58:25 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2325191
+2026-03-05 12:58:25 | INFO     | orchestrator              | Submitting lId=2325193: GP.pdf
+2026-03-05 12:58:25 | INFO     | print_queue_client        | Submitting to Print Queue: GP.pdf (from C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325193_GP.pdf)
+2026-03-05 12:58:26 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:58:26 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE5AAD0>
+2026-03-05 12:58:26 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'POST']>
+2026-03-05 12:58:26 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:58:26 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'POST']>
+2026-03-05 12:58:26 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:58:26 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'POST']>
+2026-03-05 12:58:27 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:28:25 GMT'), (b'server', b'uvicorn'), (b'content-length', b'107'), (b'content-type', b'application/json')])
+2026-03-05 12:58:27 | INFO     | httpx                     | HTTP Request: POST http://127.0.0.1:8001/print-queue "HTTP/1.1 200 OK"
+2026-03-05 12:58:27 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'POST']>
+2026-03-05 12:58:27 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:58:27 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:58:27 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:58:27 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:58:27 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:58:27 | INFO     | print_queue_client        | Submitted successfully: job_id=job_9_52f0dbd8
+2026-03-05 12:58:27 | INFO     | orchestrator              | Polling job job_8_da70ee4a for lId=2325192
+2026-03-05 12:58:27 | INFO     | print_queue_client        | Polling job job_8_da70ee4a every 30s (timeout: 120s)...
+2026-03-05 12:58:28 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:58:28 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE5B1B0>
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:28:28 GMT'), (b'server', b'uvicorn'), (b'content-length', b'374'), (b'content-type', b'application/json')])
+2026-03-05 12:58:28 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_8_da70ee4a "HTTP/1.1 200 OK"
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:58:28 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:58:28 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:58:28 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:58:28 | DEBUG    | print_queue_client        | Job job_8_da70ee4a status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 12:58:59 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:58:59 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE5B930>
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:28:59 GMT'), (b'server', b'uvicorn'), (b'content-length', b'374'), (b'content-type', b'application/json')])
+2026-03-05 12:58:59 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_8_da70ee4a "HTTP/1.1 200 OK"
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:58:59 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:58:59 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:58:59 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:58:59 | DEBUG    | print_queue_client        | Job job_8_da70ee4a status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 12:59:30 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:59:30 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE780A0>
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:29:30 GMT'), (b'server', b'uvicorn'), (b'content-length', b'96908'), (b'content-type', b'application/json')])
+2026-03-05 12:59:30 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_8_da70ee4a "HTTP/1.1 200 OK"
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:59:30 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:59:30 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:59:30 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:59:30 | INFO     | print_queue_client        | Job job_8_da70ee4a completed in 63s
+2026-03-05 12:59:30 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2325192_OOC_flatten.pdf (72267 bytes)
+2026-03-05 12:59:30 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2325192, 'jobId': 649985, 'docPath': 'OILA_FgPl\\CB16011MBOI2425\\', 'fileName': 'OOC_flatten.pdf', 'docType': 127, 'flattenQueueId': 'job_8_da70ee4a', 'flattenStatusId': 2, 'fileBase64': '<base64 string (96356 chars)>'}
+2026-03-05 12:59:30 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 12:59:30 | INFO     | erp_client                | ERP save successful for lId=2325192
+2026-03-05 12:59:30 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325192_OOC.pdf
+2026-03-05 12:59:30 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2325192_OOC_flatten.pdf
+2026-03-05 12:59:30 | INFO     | state_manager             | Moved doc_2325192 to completed (Mar_2026/05_03)
+2026-03-05 12:59:30 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2325192
+2026-03-05 12:59:30 | INFO     | orchestrator              | Polling job job_9_52f0dbd8 for lId=2325193
+2026-03-05 12:59:30 | INFO     | print_queue_client        | Polling job job_9_52f0dbd8 every 30s (timeout: 120s)...
+2026-03-05 12:59:31 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 12:59:31 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE786E0>
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:29:31 GMT'), (b'server', b'uvicorn'), (b'content-length', b'372'), (b'content-type', b'application/json')])
+2026-03-05 12:59:31 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_9_52f0dbd8 "HTTP/1.1 200 OK"
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 12:59:31 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 12:59:31 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 12:59:31 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 12:59:31 | DEBUG    | print_queue_client        | Job job_9_52f0dbd8 status: processing. Elapsed: 0s. Waiting 30s...
+2026-03-05 13:00:03 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 13:00:03 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE79130>
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:30:02 GMT'), (b'server', b'uvicorn'), (b'content-length', b'372'), (b'content-type', b'application/json')])
+2026-03-05 13:00:03 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_9_52f0dbd8 "HTTP/1.1 200 OK"
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 13:00:03 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 13:00:03 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 13:00:03 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 13:00:03 | DEBUG    | print_queue_client        | Job job_9_52f0dbd8 status: processing. Elapsed: 31s. Waiting 30s...
+2026-03-05 13:00:33 | DEBUG    | httpcore.connection       | connect_tcp.started host='127.0.0.1' port=8001 local_address=None timeout=30 socket_options=None
+2026-03-05 13:00:33 | DEBUG    | httpcore.connection       | connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000158ADE79860>
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | send_request_headers.started request=<Request [b'GET']>
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | send_request_headers.complete
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | send_request_body.started request=<Request [b'GET']>
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | send_request_body.complete
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | receive_response_headers.started request=<Request [b'GET']>
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'date', b'Thu, 05 Mar 2026 07:30:33 GMT'), (b'server', b'uvicorn'), (b'content-length', b'129960'), (b'content-type', b'application/json')])
+2026-03-05 13:00:33 | INFO     | httpx                     | HTTP Request: GET http://127.0.0.1:8001/job-status/job_9_52f0dbd8 "HTTP/1.1 200 OK"
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | receive_response_body.started request=<Request [b'GET']>
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | receive_response_body.complete
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | response_closed.started
+2026-03-05 13:00:33 | DEBUG    | httpcore.http11           | response_closed.complete
+2026-03-05 13:00:33 | DEBUG    | httpcore.connection       | close.started
+2026-03-05 13:00:33 | DEBUG    | httpcore.connection       | close.complete
+2026-03-05 13:00:33 | INFO     | print_queue_client        | Job job_9_52f0dbd8 completed in 62s
+2026-03-05 13:00:33 | DEBUG    | orchestrator              | Cached flatten file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2325193_GP_flatten.pdf (97059 bytes)
+2026-03-05 13:00:33 | INFO     | erp_client                | Saving flattened doc payload: {'lId': 2325193, 'jobId': 649985, 'docPath': 'OILA_FgPl\\CB16011MBOI2425\\', 'fileName': 'GP_flatten.pdf', 'docType': 128, 'flattenQueueId': 'job_9_52f0dbd8', 'flattenStatusId': 2, 'fileBase64': '<base64 string (129412 chars)>'}
+2026-03-05 13:00:34 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/PreAlertDoc/SaveFlattenDoc HTTP/1.1" 200 None
+2026-03-05 13:00:34 | INFO     | erp_client                | ERP save successful for lId=2325193
+2026-03-05 13:00:34 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\input_2325193_GP.pdf
+2026-03-05 13:00:34 | DEBUG    | orchestrator              | Cleaned up cached file: C:\Users\comp-677\Shubham\Babaji Projects\Backend\Python Projects\pdf_merge_utility\print_handling_utility\cache\flatten_2325193_GP_flatten.pdf
+2026-03-05 13:00:34 | INFO     | state_manager             | Moved doc_2325193 to completed (Mar_2026/05_03)
+2026-03-05 13:00:34 | INFO     | orchestrator              | Successfully saved flattened doc for lId=2325193
+2026-03-05 13:00:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 13:00:34 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 9, 'submitted': 9, 'completed': 9, 'failed': 0, 'saved_to_erp': 9}
+2026-03-05 13:00:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 13:00:34 | INFO     | __main__                  | Cycle 1 summary: fetched=9, submitted=9, completed=9, saved=9, failed=0, retried=0
+2026-03-05 13:00:34 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 13:50:54 | INFO     | __main__                  | --- CYCLE 2 at 2026-03-05T13:50:54.631786 ---
+2026-03-05 13:50:54 | INFO     | orchestrator              | ============================================================
+2026-03-05 13:50:54 | INFO     | orchestrator              | CYCLE START
+2026-03-05 13:50:54 | INFO     | orchestrator              | ============================================================
+2026-03-05 13:50:54 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 13:50:54 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T13:00:34.234102)
+2026-03-05 13:50:54 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 13:50:54 | DEBUG    | urllib3.util.retry        | Incremented Retry for (url='/api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A00%3A34.234102'): Retry(total=4, connect=None, read=None, redirect=None, status=None)
+2026-03-05 13:50:55 | WARNING  | urllib3.connectionpool    | Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='192.168.6.98', port=440): Failed to establish a new connection: [WinError 10051] A socket operation was attempted to an unreachable network")': /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A00%3A34.234102
+2026-03-05 13:50:55 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (2): 192.168.6.98:440
+2026-03-05 13:50:55 | DEBUG    | urllib3.util.retry        | Incremented Retry for (url='/api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A00%3A34.234102'): Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2026-03-05 13:51:01 | WARNING  | urllib3.connectionpool    | Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='192.168.6.98', port=440): Failed to establish a new connection: [WinError 10051] A socket operation was attempted to an unreachable network")': /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A00%3A34.234102
+2026-03-05 13:51:01 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (3): 192.168.6.98:440
+2026-03-05 13:51:01 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A00%3A34.234102 HTTP/1.1" 200 None
+2026-03-05 13:51:01 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 13:51:01 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 13:51:01 | INFO     | orchestrator              | ============================================================
+2026-03-05 13:51:01 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 13:51:01 | INFO     | orchestrator              | ============================================================
+2026-03-05 13:51:01 | INFO     | __main__                  | Cycle 2 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 13:51:01 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 14:06:01 | INFO     | __main__                  | --- CYCLE 3 at 2026-03-05T14:06:01.436811 ---
+2026-03-05 14:06:01 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:06:01 | INFO     | orchestrator              | CYCLE START
+2026-03-05 14:06:01 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:06:01 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 14:06:01 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T13:51:01.365842)
+2026-03-05 14:06:01 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 14:06:01 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A51%3A01.365842 HTTP/1.1" 401 None
+2026-03-05 14:06:01 | WARNING  | erp_client                | ERP returned 401 — token expired, re-authenticating
+2026-03-05 14:06:01 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 14:06:01 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 14:06:01 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 14:06:01 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T13%3A51%3A01.365842 HTTP/1.1" 200 None
+2026-03-05 14:06:02 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 14:06:02 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 14:06:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:06:02 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 14:06:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:06:02 | INFO     | __main__                  | Cycle 3 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 14:06:02 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 14:21:02 | INFO     | __main__                  | --- CYCLE 4 at 2026-03-05T14:21:02.060859 ---
+2026-03-05 14:21:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:21:02 | INFO     | orchestrator              | CYCLE START
+2026-03-05 14:21:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:21:02 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 14:21:02 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T14:06:02.017902)
+2026-03-05 14:21:02 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 14:21:02 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T14%3A06%3A02.017902 HTTP/1.1" 200 None
+2026-03-05 14:21:02 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 14:21:02 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 14:21:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:21:02 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 14:21:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:21:02 | INFO     | __main__                  | Cycle 4 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 14:21:02 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 14:36:02 | INFO     | __main__                  | --- CYCLE 5 at 2026-03-05T14:36:02.478261 ---
+2026-03-05 14:36:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:36:02 | INFO     | orchestrator              | CYCLE START
+2026-03-05 14:36:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:36:02 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 14:36:02 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T14:21:02.367115)
+2026-03-05 14:36:02 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 14:36:02 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T14%3A21%3A02.367115 HTTP/1.1" 200 None
+2026-03-05 14:36:02 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 14:36:02 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 14:36:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:36:02 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 14:36:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:36:02 | INFO     | __main__                  | Cycle 5 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 14:36:02 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 14:51:02 | INFO     | __main__                  | --- CYCLE 6 at 2026-03-05T14:51:02.793306 ---
+2026-03-05 14:51:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:51:02 | INFO     | orchestrator              | CYCLE START
+2026-03-05 14:51:02 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:51:02 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 14:51:02 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T14:36:02.745250)
+2026-03-05 14:51:02 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 14:51:04 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T14%3A36%3A02.745250 HTTP/1.1" 200 None
+2026-03-05 14:51:05 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 14:51:05 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 14:51:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:51:05 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 14:51:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 14:51:05 | INFO     | __main__                  | Cycle 6 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 14:51:05 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 15:06:05 | INFO     | __main__                  | --- CYCLE 7 at 2026-03-05T15:06:05.042726 ---
+2026-03-05 15:06:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:06:05 | INFO     | orchestrator              | CYCLE START
+2026-03-05 15:06:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:06:05 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 15:06:05 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T14:51:05.008175)
+2026-03-05 15:06:05 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 15:06:05 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T14%3A51%3A05.008175 HTTP/1.1" 200 None
+2026-03-05 15:06:05 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 15:06:05 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 15:06:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:06:05 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 15:06:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:06:05 | INFO     | __main__                  | Cycle 7 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 15:06:05 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 15:21:05 | INFO     | __main__                  | --- CYCLE 8 at 2026-03-05T15:21:05.441594 ---
+2026-03-05 15:21:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:21:05 | INFO     | orchestrator              | CYCLE START
+2026-03-05 15:21:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:21:05 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 15:21:05 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T15:06:05.386342)
+2026-03-05 15:21:05 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 15:21:05 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A06%3A05.386342 HTTP/1.1" 401 None
+2026-03-05 15:21:05 | WARNING  | erp_client                | ERP returned 401 — token expired, re-authenticating
+2026-03-05 15:21:05 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 15:21:05 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 15:21:05 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 15:21:05 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A06%3A05.386342 HTTP/1.1" 200 None
+2026-03-05 15:21:05 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 15:21:05 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 15:21:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:21:05 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 15:21:05 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:21:05 | INFO     | __main__                  | Cycle 8 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 15:21:05 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 15:36:05 | INFO     | __main__                  | --- CYCLE 9 at 2026-03-05T15:36:05.983632 ---
+2026-03-05 15:36:06 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:36:06 | INFO     | orchestrator              | CYCLE START
+2026-03-05 15:36:06 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:36:06 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 15:36:06 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T15:21:05.917147)
+2026-03-05 15:36:06 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 15:36:07 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A21%3A05.917147 HTTP/1.1" 200 None
+2026-03-05 15:36:07 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 15:36:07 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 15:36:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:36:07 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 15:36:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:36:07 | INFO     | __main__                  | Cycle 9 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 15:36:07 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 15:51:07 | INFO     | __main__                  | --- CYCLE 10 at 2026-03-05T15:51:07.688429 ---
+2026-03-05 15:51:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:51:07 | INFO     | orchestrator              | CYCLE START
+2026-03-05 15:51:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:51:07 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 15:51:07 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T15:36:07.639666)
+2026-03-05 15:51:07 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 15:51:07 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A36%3A07.639666 HTTP/1.1" 200 None
+2026-03-05 15:51:07 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 15:51:07 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 15:51:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:51:07 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 15:51:07 | INFO     | orchestrator              | ============================================================
+2026-03-05 15:51:07 | INFO     | __main__                  | Cycle 10 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 15:51:07 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 16:09:51 | INFO     | __main__                  | --- CYCLE 11 at 2026-03-05T16:09:51.180479 ---
+2026-03-05 16:09:51 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:09:51 | INFO     | orchestrator              | CYCLE START
+2026-03-05 16:09:51 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:09:51 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 16:09:51 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T15:51:07.959510)
+2026-03-05 16:09:51 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 16:09:51 | DEBUG    | urllib3.util.retry        | Incremented Retry for (url='/api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510'): Retry(total=4, connect=None, read=None, redirect=None, status=None)
+2026-03-05 16:09:51 | WARNING  | urllib3.connectionpool    | Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='192.168.6.98', port=440): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host")': /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510
+2026-03-05 16:09:51 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (4): 192.168.6.98:440
+2026-03-05 16:09:51 | DEBUG    | urllib3.util.retry        | Incremented Retry for (url='/api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510'): Retry(total=3, connect=None, read=None, redirect=None, status=None)
+2026-03-05 16:09:57 | WARNING  | urllib3.connectionpool    | Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='192.168.6.98', port=440): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host")': /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510
+2026-03-05 16:09:57 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (5): 192.168.6.98:440
+2026-03-05 16:09:57 | DEBUG    | urllib3.util.retry        | Incremented Retry for (url='/api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510'): Retry(total=2, connect=None, read=None, redirect=None, status=None)
+2026-03-05 16:10:09 | WARNING  | urllib3.connectionpool    | Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError("HTTPConnection(host='192.168.6.98', port=440): Failed to establish a new connection: [WinError 10065] A socket operation was attempted to an unreachable host")': /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510
+2026-03-05 16:10:09 | DEBUG    | urllib3.connectionpool    | Starting new HTTP connection (6): 192.168.6.98:440
+2026-03-05 16:10:09 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T15%3A51%3A07.959510 HTTP/1.1" 200 None
+2026-03-05 16:10:09 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 16:10:09 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 16:10:09 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:10:09 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 16:10:09 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:10:09 | INFO     | __main__                  | Cycle 11 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 16:10:09 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 16:26:28 | INFO     | __main__                  | --- CYCLE 12 at 2026-03-05T16:26:28.571570 ---
+2026-03-05 16:26:28 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:26:28 | INFO     | orchestrator              | CYCLE START
+2026-03-05 16:26:28 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:26:28 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 16:26:29 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T16:10:09.929037)
+2026-03-05 16:26:29 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 16:26:29 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T16%3A10%3A09.929037 HTTP/1.1" 401 None
+2026-03-05 16:26:29 | WARNING  | erp_client                | ERP returned 401 — token expired, re-authenticating
+2026-03-05 16:26:29 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 16:26:29 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 16:26:29 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 16:26:30 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T16%3A10%3A09.929037 HTTP/1.1" 200 None
+2026-03-05 16:26:30 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 16:26:30 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 16:26:30 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:26:30 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 16:26:30 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:26:30 | INFO     | __main__                  | Cycle 12 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 16:26:30 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 16:41:30 | INFO     | __main__                  | --- CYCLE 13 at 2026-03-05T16:41:30.475839 ---
+2026-03-05 16:41:30 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:41:30 | INFO     | orchestrator              | CYCLE START
+2026-03-05 16:41:30 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:41:30 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 16:41:30 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T16:26:30.262354)
+2026-03-05 16:41:30 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 16:41:31 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T16%3A26%3A30.262354 HTTP/1.1" 200 None
+2026-03-05 16:41:31 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 16:41:31 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 16:41:31 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:41:31 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 16:41:31 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:41:31 | INFO     | __main__                  | Cycle 13 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 16:41:31 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 16:56:31 | INFO     | __main__                  | --- CYCLE 14 at 2026-03-05T16:56:31.952398 ---
+2026-03-05 16:56:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:56:32 | INFO     | orchestrator              | CYCLE START
+2026-03-05 16:56:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:56:32 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 16:56:32 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T16:41:31.891001)
+2026-03-05 16:56:32 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 16:56:32 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T16%3A41%3A31.891001 HTTP/1.1" 200 None
+2026-03-05 16:56:32 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 16:56:32 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 16:56:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:56:32 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 16:56:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 16:56:32 | INFO     | __main__                  | Cycle 14 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 16:56:32 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 17:11:32 | INFO     | __main__                  | --- CYCLE 15 at 2026-03-05T17:11:32.460295 ---
+2026-03-05 17:11:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:11:32 | INFO     | orchestrator              | CYCLE START
+2026-03-05 17:11:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:11:32 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 17:11:32 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T16:56:32.387016)
+2026-03-05 17:11:32 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 17:11:32 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T16%3A56%3A32.387016 HTTP/1.1" 200 None
+2026-03-05 17:11:32 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 17:11:32 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 17:11:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:11:32 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 17:11:32 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:11:32 | INFO     | __main__                  | Cycle 15 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 17:11:33 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 17:26:33 | INFO     | __main__                  | --- CYCLE 16 at 2026-03-05T17:26:33.008805 ---
+2026-03-05 17:26:33 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:26:33 | INFO     | orchestrator              | CYCLE START
+2026-03-05 17:26:33 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:26:33 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 17:26:33 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T17:11:32.971012)
+2026-03-05 17:26:33 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 17:26:33 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T17%3A11%3A32.971012 HTTP/1.1" 200 None
+2026-03-05 17:26:33 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 17:26:33 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 17:26:33 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:26:33 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 17:26:33 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:26:33 | INFO     | __main__                  | Cycle 16 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 17:26:33 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 17:41:33 | INFO     | __main__                  | --- CYCLE 17 at 2026-03-05T17:41:33.647106 ---
+2026-03-05 17:41:33 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:41:33 | INFO     | orchestrator              | CYCLE START
+2026-03-05 17:41:33 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:41:33 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 17:41:33 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T17:26:33.572551)
+2026-03-05 17:41:33 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 17:41:33 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T17%3A26%3A33.572551 HTTP/1.1" 401 None
+2026-03-05 17:41:33 | WARNING  | erp_client                | ERP returned 401 — token expired, re-authenticating
+2026-03-05 17:41:33 | INFO     | erp_client                | ERP login: http://192.168.6.98:440/api/Login
+2026-03-05 17:41:33 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "POST /api/Login HTTP/1.1" 200 None
+2026-03-05 17:41:34 | INFO     | erp_client                | ERP login successful, token acquired
+2026-03-05 17:41:34 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T17%3A26%3A33.572551 HTTP/1.1" 200 None
+2026-03-05 17:41:34 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 17:41:34 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 17:41:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:41:34 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 17:41:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:41:34 | INFO     | __main__                  | Cycle 17 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 17:41:34 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 17:56:34 | INFO     | __main__                  | --- CYCLE 18 at 2026-03-05T17:56:34.347802 ---
+2026-03-05 17:56:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:56:34 | INFO     | orchestrator              | CYCLE START
+2026-03-05 17:56:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:56:34 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 17:56:34 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T17:41:34.283395)
+2026-03-05 17:56:34 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 17:56:34 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T17%3A41%3A34.283395 HTTP/1.1" 200 None
+2026-03-05 17:56:34 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 17:56:34 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 17:56:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:56:34 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 17:56:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 17:56:34 | INFO     | __main__                  | Cycle 18 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 17:56:34 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 18:11:34 | INFO     | __main__                  | --- CYCLE 19 at 2026-03-05T18:11:34.786963 ---
+2026-03-05 18:11:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:11:34 | INFO     | orchestrator              | CYCLE START
+2026-03-05 18:11:34 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:11:34 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 18:11:34 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T17:56:34.732605)
+2026-03-05 18:11:34 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 18:11:35 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T17%3A56%3A34.732605 HTTP/1.1" 200 None
+2026-03-05 18:11:35 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 18:11:35 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 18:11:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:11:35 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 18:11:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:11:35 | INFO     | __main__                  | Cycle 19 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 18:11:35 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 18:26:35 | INFO     | __main__                  | --- CYCLE 20 at 2026-03-05T18:26:35.260454 ---
+2026-03-05 18:26:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:26:35 | INFO     | orchestrator              | CYCLE START
+2026-03-05 18:26:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:26:35 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 18:26:35 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T18:11:35.196262)
+2026-03-05 18:26:35 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 18:26:35 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T18%3A11%3A35.196262 HTTP/1.1" 200 None
+2026-03-05 18:26:35 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 18:26:35 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 18:26:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:26:35 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 18:26:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:26:35 | INFO     | __main__                  | Cycle 20 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 18:26:35 | INFO     | __main__                  | Next cycle in 15 minutes...
+2026-03-05 18:41:35 | INFO     | __main__                  | --- CYCLE 21 at 2026-03-05T18:41:35.781990 ---
+2026-03-05 18:41:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:41:35 | INFO     | orchestrator              | CYCLE START
+2026-03-05 18:41:35 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:41:35 | INFO     | orchestrator              | RETRY PHASE: No pending retries
+2026-03-05 18:41:35 | INFO     | erp_client                | Fetching documents from ERP: http://192.168.6.98:440/api/PreAlertDoc/GetDocsByDate (fromDate=2026-03-05T18:26:35.720719)
+2026-03-05 18:41:35 | DEBUG    | urllib3.connectionpool    | Resetting dropped connection: 192.168.6.98
+2026-03-05 18:41:36 | DEBUG    | urllib3.connectionpool    | http://192.168.6.98:440 "GET /api/PreAlertDoc/GetDocsByDate?fromDate=2026-03-05T18%3A26%3A35.720719 HTTP/1.1" 200 None
+2026-03-05 18:41:36 | INFO     | erp_client                | Fetched 0 total documents, 0 match supported types with fileBase64
+2026-03-05 18:41:36 | INFO     | orchestrator              | FETCH PHASE: 0 new documents to process
+2026-03-05 18:41:36 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:41:36 | INFO     | orchestrator              | CYCLE COMPLETE: {'retried': 0, 'fetched': 0, 'submitted': 0, 'completed': 0, 'failed': 0, 'saved_to_erp': 0}
+2026-03-05 18:41:36 | INFO     | orchestrator              | ============================================================
+2026-03-05 18:41:36 | INFO     | __main__                  | Cycle 21 summary: fetched=0, submitted=0, completed=0, saved=0, failed=0, retried=0
+2026-03-05 18:41:36 | INFO     | __main__                  | Next cycle in 15 minutes...

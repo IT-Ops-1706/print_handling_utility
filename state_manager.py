@@ -96,14 +96,41 @@ class StateManager:
             return None
 
     def _write_json_atomic(self, path: str, data: dict | list) -> None:
-        """Write JSON atomically: temp file + os.replace()."""
+        """Write JSON atomically: temp file + os.replace().
+
+        On Windows, os.replace() can raise PermissionError (WinError 5) when
+        another process (UI monitor, antivirus, Windows Search Indexer, etc.)
+        briefly holds the destination file open.  We retry a few times with a
+        short back-off before giving up so that transient locks don't crash the
+        cycle.
+        """
+        import time
+
         directory = os.path.dirname(path)
         os.makedirs(directory, exist_ok=True)
         fd, tmp_path = tempfile.mkstemp(dir=directory, suffix=".tmp")
         try:
             with os.fdopen(fd, "w", encoding="utf-8") as f:
                 json.dump(data, f, indent=2, default=str)
-            os.replace(tmp_path, path)
+
+            max_retries = 5
+            retry_delay = 0.2  # seconds
+            for attempt in range(1, max_retries + 1):
+                try:
+                    os.replace(tmp_path, path)
+                    return  # success
+                except PermissionError as exc:
+                    if attempt == max_retries:
+                        logger.error(
+                            f"os.replace failed after {max_retries} attempts "
+                            f"for {path}: {exc}"
+                        )
+                        raise
+                    logger.warning(
+                        f"os.replace attempt {attempt}/{max_retries} blocked "
+                        f"(WinError 5) for {path}, retrying in {retry_delay}s…"
+                    )
+                    time.sleep(retry_delay)
         except Exception:
             try:
                 os.unlink(tmp_path)
