@@ -66,6 +66,9 @@ class TrackedJob(BaseModel):
     flatten_docType: int
     input_file_path: Optional[str] = None   # Path to cached input PDF on disk
     output_file_path: Optional[str] = None  # Path to cached flattened PDF on disk
+    first_page_path: Optional[str] = None   # Path to extracted first page (multi-page PDFs)
+    total_pages: int = 1                     # Original PDF page count
+    needs_merge: bool = False                # True if first page was extracted for flattening
     print_queue_job_id: Optional[str] = None
     status: str  # fetched, submitted, polling, completed, saved_to_erp, failed, pending_retry, permanently_failed
     retry_count: int = 0

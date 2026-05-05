@@ -4,6 +4,7 @@ Implements: retry phase -> fetch phase -> process phase (batched)
 
 File lifecycle:
   - Input PDFs:     cache/input_{lId}_{filename}     — deleted after successful ERP save
+  - First pages:    cache/firstpage_{lId}_{filename}  — deleted after successful ERP save
   - Flattened PDFs: cache/flatten_{lId}_{filename}    — deleted after successful ERP save
   - On permanent failure: files are KEPT for manual inspection
 
@@ -14,11 +15,20 @@ Batch processing:
     - Polling occurs sequentially: poll timeout starts only after the prior job resolves
     - On each resolution, the next job is submitted to maintain queue depth
   - Eliminates false timeouts caused by queue wait time
+
+First-page optimization:
+  - For multi-page PDFs, only the first page is sent to the Print Queue
+    (only page 1 has the digital signature that needs Adobe Acrobat flattening)
+  - After flattening, the flattened first page is merged back with pages 2+
+    from the original PDF before saving to ERP
 """
+import io
 import os
 import base64
 import logging
 from datetime import datetime
+
+from pypdf import PdfReader, PdfWriter, PdfMerger
 
 from config import config
 from models import TrackedJob, SaveFlattenDocRequest
@@ -147,9 +157,16 @@ class Orchestrator:
                 )
                 results["retried"] += 1
 
-            logger.info(f"Submitting lId={job.lId}: {job.fileName}")
+            submit_path = job.first_page_path if job.needs_merge else job.input_file_path
+            if job.needs_merge:
+                logger.info(
+                    f"Submitting lId={job.lId}: {job.fileName} "
+                    f"(first page only, {job.total_pages} pages total)"
+                )
+            else:
+                logger.info(f"Submitting lId={job.lId}: {job.fileName}")
             submit_result, submit_error_type = self.print_queue.submit_job(
-                job.fileName, job.input_file_path
+                job.fileName, submit_path
             )
 
             if not submit_result:
@@ -250,6 +267,11 @@ class Orchestrator:
                 logger.error(f"Failed to cache input file for lId={doc.lId}, skipping")
                 continue
 
+            # --- Extract first page for flattening (multi-page optimization) ---
+            first_page_path, total_pages, needs_merge = self._extract_first_page(
+                input_path, doc.lId, doc.fileName
+            )
+
             job = TrackedJob(
                 lId=doc.lId,
                 jobId=doc.jobId,
@@ -258,6 +280,9 @@ class Orchestrator:
                 original_docType=doc.docType,
                 flatten_docType=flatten_doc_type,
                 input_file_path=input_path,
+                first_page_path=first_page_path if needs_merge else None,
+                total_pages=total_pages,
+                needs_merge=needs_merge,
                 status="fetched",
             )
 
@@ -286,12 +311,23 @@ class Orchestrator:
             self._handle_failure(job, "Completed but no base64 in response", "unknown")
             return "failed"
 
+        # --- Merge flattened page 1 back with remaining pages if multi-page ---
+        if job.needs_merge:
+            try:
+                final_base64 = self._merge_flattened_first_page(job, poll_result.result)
+            except Exception as e:
+                logger.error(f"Failed to merge pages for lId={job.lId}: {e}")
+                self._handle_failure(job, f"Merge failed: {e}", "unknown")
+                return "failed"
+        else:
+            final_base64 = poll_result.result
+
         # --- Save flattened PDF to cache ---
         base_name = job.fileName.rsplit(".", 1)[0] if "." in job.fileName else job.fileName
         flatten_filename = f"{base_name}_flatten.pdf"
 
         output_path = self._save_to_cache(
-            job.lId, flatten_filename, poll_result.result, prefix="flatten"
+            job.lId, flatten_filename, final_base64, prefix="flatten"
         )
         if not output_path:
             logger.error(f"Failed to cache flattened output for lId={job.lId}")
@@ -309,7 +345,7 @@ class Orchestrator:
             docType=job.flatten_docType,
             flattenQueueId=job.print_queue_job_id or "",
             flattenStatusId=2,
-            fileBase64=poll_result.result,
+            fileBase64=final_base64,
         )
 
         success = self.erp.save_flatten_doc(request)
@@ -351,13 +387,84 @@ class Orchestrator:
             logger.error(f"Failed to cache {prefix} file for lId={lId}: {e}")
             return None
 
+    def _extract_first_page(self, input_path: str, lId: int, filename: str) -> tuple[str, int, bool]:
+        """Extract the first page from a PDF for flattening.
+
+        Only the first page has the digital signature that needs Adobe Acrobat
+        flattening. For multi-page PDFs, we extract page 1 and send only that
+        to the Print Queue, significantly reducing Adobe processing time.
+
+        Returns:
+            (path_to_submit, total_pages, needs_merge)
+            - If single page: returns original path, 1, False
+            - If multi-page: returns first-page path, total_pages, True
+        """
+        try:
+            reader = PdfReader(input_path)
+            total_pages = len(reader.pages)
+
+            if total_pages <= 1:
+                logger.debug(f"lId={lId}: Single-page PDF, no extraction needed")
+                return input_path, total_pages, False
+
+            # Extract first page
+            writer = PdfWriter()
+            writer.add_page(reader.pages[0])
+
+            first_page_path = os.path.join(self.cache_dir, f"firstpage_{lId}_{filename}")
+            with open(first_page_path, "wb") as f:
+                writer.write(f)
+
+            logger.info(
+                f"lId={lId}: Extracted page 1/{total_pages} for flattening -> {first_page_path}"
+            )
+            return first_page_path, total_pages, True
+
+        except Exception as e:
+            logger.warning(
+                f"lId={lId}: Failed to extract first page ({e}), "
+                f"falling back to full PDF"
+            )
+            return input_path, 1, False
+
+    def _merge_flattened_first_page(self, job: TrackedJob, flattened_base64: str) -> str:
+        """Merge flattened page 1 with remaining pages from original PDF.
+
+        After Adobe Acrobat flattens only the first page (digital signature page),
+        this method recombines it with pages 2+ from the original document.
+
+        All operations are in-memory (BytesIO) for speed — no temp files needed.
+
+        Returns:
+            base64 string of the complete merged PDF
+        """
+        # Decode flattened first page
+        flattened_bytes = base64.b64decode(flattened_base64)
+
+        # Merge: flattened page 1 + original pages 2+
+        merger = PdfMerger()
+        merger.append(io.BytesIO(flattened_bytes))
+        merger.append(job.input_file_path, pages=(1, job.total_pages))
+
+        merged_buffer = io.BytesIO()
+        merger.write(merged_buffer)
+        merger.close()
+        merged_buffer.seek(0)
+
+        merged_base64 = base64.b64encode(merged_buffer.getvalue()).decode("utf-8")
+        logger.info(
+            f"lId={job.lId}: Merged flattened page 1 + "
+            f"{job.total_pages - 1} original pages"
+        )
+        return merged_base64
+
     def _cleanup_cached_files(self, lId: int) -> None:
-        """Delete cached input and output files after confirmed ERP save success."""
+        """Delete cached input, first-page, and output files after confirmed ERP save success."""
         job = self.state.get_active_job(lId)
         if not job:
             return
 
-        for path_attr in ("input_file_path", "output_file_path"):
+        for path_attr in ("input_file_path", "output_file_path", "first_page_path"):
             file_path = getattr(job, path_attr, None)
             if file_path and os.path.exists(file_path):
                 try:

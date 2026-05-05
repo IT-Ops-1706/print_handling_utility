@@ -1,5 +1,6 @@
 httpx
 pydantic
+pypdf>=3.17.0
 python-dotenv
 requests
 urllib3
